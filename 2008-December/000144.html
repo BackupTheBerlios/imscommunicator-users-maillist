@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Changing transport to TCP does not work
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Changing%20transport%20to%20TCP%20does%20not%20work&In-Reply-To=%3C107BD66223E143ECB34439EF12DC2E42%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000143.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Changing transport to TCP does not work</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Changing%20transport%20to%20TCP%20does%20not%20work&In-Reply-To=%3C107BD66223E143ECB34439EF12DC2E42%40notebook%3E"
+       TITLE="[imscommunicator-users] Changing transport to TCP does not work">franz.edler at inode.at
+       </A><BR>
+    <I>Sat Dec 13 13:52:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000143.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Miguel,
+
+&gt;<i> The registration of Alice using TCP is successful, except the subscription
+</I>&gt;<i> to the reg-event package.
+</I>&gt;<i> Examining to capture, I can see that the 200 OK for SUBSCRIBE and the
+</I>&gt;<i> NOTIFY sent by P-CSCF is not following the original Via: SIP/2.0/TCP
+</I>&gt;<i> 192.169.0.2:5063 sent by the UAC alice when it REGISTERed, and maybe it
+</I>&gt;<i> uses the Request-URI to send it in UDP instead of TCP, hence the &quot;port
+</I>&gt;<i> unreachable&quot;.
+</I>
+Sorry for my late answer.
+After looking into more details I see the issue first of all at the
+IMS-Communicator which includes a port-number in Contact and Via header
+field which is different from the source port used. IMS-Communicator sends
+the request from TCP port 1612 whereas in Contact and Via it includes port
+5063 (the port number I have provisioned).
+
+In Contact it also should contain a &quot;transport=TCP&quot; URI parameter as well,
+otherwise the P-CSCF is allowed to use UDP as well. If the P-CSCF does not
+follow the advertised transport address, than we have an issue at P-CSCF as
+well. But first of all I think the advertised address in Via and Contact
+should be aligned with the transport address used.
+
+Actually P-CSCF uses the advertised transport address in Contact when
+sending new requests, but IMS communicator does not listen on that address.
+
+I think that is the cause of the problem.
+
+Kind regards
+Franz
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000143.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

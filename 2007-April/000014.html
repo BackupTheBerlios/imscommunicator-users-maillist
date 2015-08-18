@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Call Not getting connected between users
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Call%20Not%20getting%20connected%20between%20users&In-Reply-To=%3C67B72BAF01E9A540B4B1F7D031F6D98905D68AF2%40BLR-EC-MBX05.wipro.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Call Not getting connected between users</H1>
+    <B>kiran.bkumar at wipro.com</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Call%20Not%20getting%20connected%20between%20users&In-Reply-To=%3C67B72BAF01E9A540B4B1F7D031F6D98905D68AF2%40BLR-EC-MBX05.wipro.com%3E"
+       TITLE="[imscommunicator-users] Call Not getting connected between users">kiran.bkumar at wipro.com
+       </A><BR>
+    <I>Fri Apr 27 08:32:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[imscommunicator-users] Problems starting IMS communicator
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[imscommunicator-users] Fwd: PRACK not sent
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi All,
+
+When I am trying to establish a call between 2 IMS Communicator users, I am getting the below java errors. The Invite message received is also attached.
+
+Calling Party :
+
+net.java.sip.communicator.sip.CommunicationsException: Failed to acknowledge call!
+ at net.java.sip.communicator.sip.CallProcessing.processInviteOK(CallProcessing.java:2864)
+ at net.java.sip.communicator.sip.SipManager.processResponse(SipManager.java:2617)
+ at gov.nist.javax.sip.EventScanner.deliverEvent(EventScanner.java:220)
+ at gov.nist.javax.sip.EventScanner.run(EventScanner.java:324)
+ at java.lang.Thread.run(Unknown Source)
+Caused by: javax.sip.SipException: Cold not create message channel - java.net.UnknownHostException: pcscf.mkd149633.wipro.com
+ at gov.nist.javax.sip.stack.SIPDialog.sendAck(SIPDialog.java:1218)
+ at net.java.sip.communicator.sip.CallProcessing.processInviteOK(CallProcessing.java:2857)
+ ... 4 more
+
+Called Party :
+net.java.sip.communicator.sip.CommunicationsException: The remote party has not replied!The call will be disconnected
+ at net.java.sip.communicator.sip.CallProcessing.processTimeout(CallProcessing.java:3898)
+ at net.java.sip.communicator.sip.SipManager.processTimeout(SipManager.java:2563)
+ at gov.nist.javax.sip.EventScanner.deliverEvent(EventScanner.java:255)
+ at gov.nist.javax.sip.EventScanner.run(EventScanner.java:324)
+ at java.lang.Thread.run(Unknown Source)
+
+And when I try with a 3CX SIP phone at one end and a IMS communicator, i get the below errors.
+
+net.java.sip.communicator.media.MediaException: Couldn't set any of the tracks to a valid RTP format
+ at net.java.sip.communicator.media.AVTransmitter.configureProcessor(AVTransmitter.java:288)
+ at net.java.sip.communicator.media.AVTransmitter.start(AVTransmitter.java:141)
+ at net.java.sip.communicator.media.MediaManager.startTransmitter(MediaManager.java:539)
+ at net.java.sip.communicator.media.MediaManager.openMediaStreams(MediaManager.java:469)
+ at net.java.sip.communicator.SipCommunicator.callStateChanged(SipCommunicator.java:1136)
+ at net.java.sip.communicator.sip.Call.fireCallStatusChangedEvent(Call.java:270)
+ at net.java.sip.communicator.sip.Call.setState(Call.java:176)
+ at net.java.sip.communicator.sip.CallProcessing.processAck(CallProcessing.java:4052)
+ at net.java.sip.communicator.sip.SipManager.processRequest(SipManager.java:2394)
+ at gov.nist.javax.sip.EventScanner.deliverEvent(EventScanner.java:185)
+ at gov.nist.javax.sip.EventScanner.run(EventScanner.java:324)
+ at java.lang.Thread.run(Unknown Source)
+
+
+Can somebody please help me on this. My XML files is attached.
+
+For me it looks like a problem with the media settings !!!!!!!!!!!
+
+Thanks in advance,
+
+Kiran.
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+The information contained in this electronic message and any attachments to this message are intended for the exclusive use of the addressee(s) and may contain proprietary, confidential or privileged information. If you are not the intended recipient, you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately and destroy all copies of this message and any attachments. 
+
+WARNING: Computer viruses can be transmitted via email. The recipient should check this email and any attachments for the presence of viruses. The company accepts no liability for any damage caused by any virus transmitted by this email.
+ 
+www.wipro.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070427/3c168329/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070427/3c168329/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ims-communicator.xml
+Type: text/xml
+Size: 7145 bytes
+Desc: ims-communicator.xml
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070427/3c168329/attachment.xml">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070427/3c168329/attachment.xml</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[imscommunicator-users] Problems starting IMS communicator
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[imscommunicator-users] Fwd: PRACK not sent
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

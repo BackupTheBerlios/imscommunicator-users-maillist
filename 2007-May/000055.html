@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Presence Support in IMS Communicator
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Presence%20Support%20in%20IMS%20Communicator&In-Reply-To=%3CBAY133-F344178BE6FBD4431ED0D0FC22E0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000056.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Presence Support in IMS Communicator</H1>
+    <B>li wang</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Presence%20Support%20in%20IMS%20Communicator&In-Reply-To=%3CBAY133-F344178BE6FBD4431ED0D0FC22E0%40phx.gbl%3E"
+       TITLE="[imscommunicator-users] Presence Support in IMS Communicator">li.wang119 at hotmail.com
+       </A><BR>
+    <I>Wed May 30 17:39:38 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[imscommunicator-users] REFER suppport
+</A></li>
+        <LI>Next message: <A HREF="000056.html">[imscommunicator-users] Question about Presence in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi Miguel and Kedar,
+
+We have tested the Presence Support with the latest release - 070521 and we 
+have a new problem.
+
+My scenario test is like this:
+
+alice and bob registre in the same domain of Open IMS Core.
+
+When alice add bob in her buddylist, the SUBSCRIBE to Presence event is not 
+sent immediately. So we restart the ims-communicator, this time it is sent 
+automatically after alice is succesfully registered and try to send a 
+SUBSCRIBE to her Reg event.
+
+For the CSeq 1 SUBSCRIBE we have received 200 OK from our application server 
+as we are configurated, that seems work well.
+
+Then after several seconds, ims-communicator continue to send the SUBSCRIBE 
+to Presence event. but this time it is rejected by Open IMS with the 
+message:
+
+Status:400 Bad Request - Not following indicated dialog routes
+
+I don't understand why the sequent SUBSCRIBE is rejected and what this 
+message really mean.
+
+Thanks and Best regards,
+
+li
+
+_________________________________________________________________
+Personnalisez votre Messenger avec Live.com 
+<A HREF="http://www.windowslive.fr/livecom/">http://www.windowslive.fr/livecom/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[imscommunicator-users] REFER suppport
+</A></li>
+	<LI>Next message: <A HREF="000056.html">[imscommunicator-users] Question about Presence in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

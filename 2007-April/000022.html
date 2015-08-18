@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Unexpected REGISTER by ims-comunicator
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Unexpected%20REGISTER%20by%20ims-comunicator&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC082%40INOAVREX05.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000021.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Unexpected REGISTER by ims-comunicator</H1>
+    <B>Jos&#233; Miguel Freitas (IT)</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Unexpected%20REGISTER%20by%20ims-comunicator&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC082%40INOAVREX05.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] Unexpected REGISTER by ims-comunicator">it-j-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Mon Apr 30 12:51:08 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000021.html">[imscommunicator-users] IMS Communicator - cold not create	message channel
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+Hi Sam..
+You said you downloaded the release-070427 but the trace shows that you are using release-070426 (User-Agent header). However, that isn't the problem in this case...
+Apparently, the P-CSCF doesn't answer/forward the 2nd Register. Any log on the P-CSCF that might explain this?
+ 
+The branch parameter identifies a transaction and must be unique for all requests sent by the UA. And it isn't supposed to add a To tag, so I don't understand how this is related with the problem you are having...
+ 
+Cheers,
+Jos&#233; Miguel Freitas
+_______________________________________
+SRM Department
+Portugal Telecom Inova&#231;&#227;o, SA
+<A HREF="http://www.ptinovacao.pt">http://www.ptinovacao.pt</A> &lt;<A HREF="http://www.ptinovacao.pt/">http://www.ptinovacao.pt/</A>&gt; 
+ 
+
+________________________________
+
+De: Sam4U [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">sam_0056 at yahoo.com</A>]
+Enviada: seg 30-04-2007 6:32
+Para: Jos&#233; Miguel Freitas (IT)
+Assunto: Unexpected REGISTER by ims-comunicator
+
+
+Hi  Jos&#195;&#169; Miguel ,
+
+I was download and start working on the new IMS-Communicator(release-070427). &lt;<A HREF="http://prdownload.berlios.de/imscommunicator/ims-communicator-linux-release-070427.zip">http://prdownload.berlios.de/imscommunicator/ims-communicator-linux-release-070427.zip</A>&gt; 
+But the after getting the 401 when it send the 2nd register i found that the Brach-id is defferent and the to tag is not add .i am attaching the trace .plz have a look and plz give some light on the same.
+
+
+	Hi Sam,
+	that is an issue that was resolved in the latest release. 
+	Please update your IMS-Communicator
+	
+	Best regards,
+	Jos&#195;&#169; Miguel Freitas
+	_______________________________________
+	SRM Department
+	Portugal Telecom Inova&#195;&#167;&#195;&#163;o, SA
+	<A HREF="http://www.ptinovacao.pt">http://www.ptinovacao.pt</A> 
+	
+	
+	________________________________
+	
+	De: Sam4U [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">sam_0056 at yahoo.com</A>]
+	Enviada: sex 27-04-2007 6:39
+	Para: Jos&#195;&#169; Miguel Freitas (IT)
+	Assunto: Trying to connect with ims-comunicator
+	
+	
+	
+	Hi Jos&#195;&#169; Miguel,
+	
+	I am trying to register my ims-communicator with the OpenIMSCore.But each time i get the 401 after sending the 2nd register message.I think there is some configuration problem in my ims-commuanicator.Can u just look agfter the issue and help me on the same.
+	
+	I am attaching the Log file and the .xml file
+	
+	
+	
+	Thanx &amp; Regard's
+	Samir Patry
+	AllianceComputerTelephony India
+	
+	09337040500
+	
+	________________________________
+	
+	Ahhh...imagining that irresistible &quot;new car&quot; smell?
+	Check out new cars at Yahoo! Autos. 
+	
+
+
+
+
+Thanx &amp; Regard's
+  Samir Patry
+AllianceComputerTelephony India
+
+  09337040500
+
+________________________________
+
+Ahhh...imagining that irresistible &quot;new car&quot; smell?
+Check out new cars at Yahoo! Autos. &lt;<A HREF="http://us.rd.yahoo.com/evt=48245/*http://autos.yahoo.com/new_cars.html;_ylc=X3oDMTE1YW1jcXJ2BF9TAzk3MTA3MDc2BHNlYwNtYWlsdGFncwRzbGsDbmV3LWNhcnM-">http://us.rd.yahoo.com/evt=48245/*http://autos.yahoo.com/new_cars.html;_ylc=X3oDMTE1YW1jcXJ2BF9TAzk3MTA3MDc2BHNlYwNtYWlsdGFncwRzbGsDbmV3LWNhcnM-</A>&gt;  
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000021.html">[imscommunicator-users] IMS Communicator - cold not create	message channel
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

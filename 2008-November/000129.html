@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] SUBSCRIBE Not getting routed to AS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20SUBSCRIBE%20Not%20getting%20routed%20to%20AS&In-Reply-To=%3CF9691909E28D4B1DBE5770973589D02A%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000128.html">
+   <LINK REL="Next"  HREF="000130.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] SUBSCRIBE Not getting routed to AS</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20SUBSCRIBE%20Not%20getting%20routed%20to%20AS&In-Reply-To=%3CF9691909E28D4B1DBE5770973589D02A%40notebook%3E"
+       TITLE="[imscommunicator-users] SUBSCRIBE Not getting routed to AS">franz.edler at inode.at
+       </A><BR>
+    <I>Mon Nov  3 04:28:34 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000128.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+        <LI>Next message: <A HREF="000130.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi  Rishikesh,
+
+you obviously used the wrong mailing-list.
+
+&gt;<i> But, the SUBSCRIBE request with registration event was not getting routed.
+</I>&gt;<i> changing CNF&lt;=&gt; DNF did not help either. I was successful in routing
+</I>&gt;<i> REGISTER and INVITE requests to the AS with appropriate trigger point
+</I>&gt;<i> configuration.
+</I>
+This is because the SUBSCRIBE with registration event is consumed by S-CSCF
+and not routed further. All other SUBSCRIBE requests can be triggered on. 
+Trigger points are only checked for requests routed through the S-CSCF and
+for REGISTER requests (which is the only exception to allow 3rd an AS to be
+informed about a registration). 
+
+Why do you need this trigger?
+Are you monitoring the P-CSCF with your AS?
+
+regards
+Franz
+
+PS: Some further remark: There are some retransmissions of SUBSCRIBE sent by
+the I-CSCF. Do you have any explanation on this?
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000128.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+	<LI>Next message: <A HREF="000130.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

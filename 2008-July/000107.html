@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] IMS-Communicator crashes when no	Contact inresponse
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20IMS-Communicator%20crashes%20when%20no%0A%09Contact%20inresponse&In-Reply-To=%3C293EDF877F0B40229950DD47B55D0130%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000103.html">
+   <LINK REL="Next"  HREF="000104.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] IMS-Communicator crashes when no	Contact inresponse</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20IMS-Communicator%20crashes%20when%20no%0A%09Contact%20inresponse&In-Reply-To=%3C293EDF877F0B40229950DD47B55D0130%40notebook%3E"
+       TITLE="[imscommunicator-users] IMS-Communicator crashes when no	Contact inresponse">franz.edler at inode.at
+       </A><BR>
+    <I>Sun Jul 27 14:20:33 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000103.html">[imscommunicator-users] IMS-Communicator crashes when no	Contact inresponse
+</A></li>
+        <LI>Next message: <A HREF="000104.html">[imscommunicator-users] REGISTER fails with &quot;Forbidden - HSS User	Unknown&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#107">[ date ]</a>
+              <a href="thread.html#107">[ thread ]</a>
+              <a href="subject.html#107">[ subject ]</a>
+              <a href="author.html#107">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Miguel,
+
+ 
+
+I have now verified the changers mentioned below.
+
+Now an UPDATE is sent even when the 200 OK of PRACK does not contain a
+Contact header field.
+
+ 
+
+Thanks and regards
+
+Franz
+
+ 
+
+  _____  
+
+From: Jos&#233; Miguel Freitas (IT) [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">it-j-freitas at ptinovacao.pt</A>] 
+Sent: Tuesday, July 08, 2008 7:47 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">franz.edler at inode.at</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">dieter.gludovacz at t-mobile.at</A>
+Subject: RE: [imscommunicator-users] IMS-Communicator crashes when no
+Contact inresponse
+
+ 
+
+Dear Franz, 
+
+has you might have seen, I've committed to BerliOS come changes that
+hopefully solve the problem you encountered (binary releases available at
+<A HREF="https://svn.berlios.de/svnroot/repos/imscommunicator/trunk/releases/">https://svn.berlios.de/svnroot/repos/imscommunicator/trunk/releases/</A>).
+
+Since you can't add a Contact header in the 200 OK to PRACK, and it is
+required for the UPDATE's Request-URI, I now get that information from the
+dialog (as you suggested)
+
+Let me know if you come across any more issues,
+
+Best regards,
+
+Miguel Freitas
+
+ 
+
+  _____  
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A> on behalf of Franz
+Edler
+Sent: Fri 13/06/2008 9:48
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">dieter.gludovacz at t-mobile.at</A>
+Subject: [imscommunicator-users] IMS-Communicator crashes when no Contact
+inresponse
+
+Hi,
+
+we found that the IMS-Communicator crashes on sending UPDATE when there is
+no Contact header field in the 200 OK response of the previously sent PRACK.
+According to our understanding the dialog state has to be created based on
+the first reliable response which is the &quot;183 Session Progress&quot; response.
+
+You can find below the diagnostic data (console-log of IMS Communicator):
+
+(s) Sending INVITE to &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at net1.test</A>&gt;
+-&gt; isTransfering() for &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at net1.test</A>&gt; ? false
+hop = pcscf.net1.test:4060/udp
+hop = scscf.net1.test:6060/udp
+(s) Received Session Progress.
+-&gt; setInverseRecordRoute() - Route:
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">mo at pcscf.net1.test</A>:4060;lr&gt;,&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">mo at scscf.net1.test</A>:6060;lr&gt;,&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">mt at sc</A>
+scf.net1
+.test:6060;lr&gt;,&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">mt at pcscf.net1.test</A>:4060;lr&gt;
+
+.: Callee user identity is &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at net1.test</A>&gt;
+-&gt; processSessionProgess() - preconditions met, restarting negotiation...
+(s) Sending PRACK.
+-&gt;sendSubscription() - Security-Verify is null for realm net1.test
+hop = pcscf.net1.test:4060/udp
+hop = scscf.net1.test:6060/udp
+hop = scscf.net1.test:6060/udp
+hop = pcscf.net1.test:4060/udp
+(s) Received OK response to PRACK.
+.: Preconditions met! Sending Update request..
+(s) Sending UPDATE.
+java.lang.NullPointerException
+        at
+net.java.sip.communicator.sip.CallProcessing.update(CallProcessing.java:1915
+)
+        at
+net.java.sip.communicator.sip.CallProcessing.processPrackOK(CallProcessing.j
+ava:1398)
+        at
+net.java.sip.communicator.sip.SipManager.processResponse(SipManager.java:254
+4)
+        at
+gov.nist.javax.sip.EventScanner.deliverEvent(EventScanner.java:220)
+        at gov.nist.javax.sip.EventScanner.run(EventScanner.java:324)
+        at java.lang.Thread.run(Unknown Source)
+
+You can also find the tcpdump-trace to the test-case in the attachment
+(osims56212-net1.pcap).
+- PRACK in packet 22
+- 200 OK (without Contact) in packet 33
+
+We detected the problem during development of a B2BUA with SIP-Servlets. The
+container did not allow including a Contact-header in the 200 OK response of
+PRACK.
+
+Regards
+Franz Edler &amp; Dieter Gludovacz
+University of Applied Sciences / Vienna
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winmail.dat
+Type: application/ms-tnef
+Size: 8418 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080727/bb0a4345/attachment.bin">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080727/bb0a4345/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000103.html">[imscommunicator-users] IMS-Communicator crashes when no	Contact inresponse
+</A></li>
+	<LI>Next message: <A HREF="000104.html">[imscommunicator-users] REGISTER fails with &quot;Forbidden - HSS User	Unknown&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#107">[ date ]</a>
+              <a href="thread.html#107">[ thread ]</a>
+              <a href="subject.html#107">[ subject ]</a>
+              <a href="author.html#107">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

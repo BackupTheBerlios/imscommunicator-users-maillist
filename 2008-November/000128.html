@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] SUBSCRIBE Not getting routed to AS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20SUBSCRIBE%20Not%20getting%20routed%20to%20AS&In-Reply-To=%3C2cde12940811021809k6ba9061bpf5375924da2bf5a0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] SUBSCRIBE Not getting routed to AS</H1>
+    <B>Rishikesh Naik</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20SUBSCRIBE%20Not%20getting%20routed%20to%20AS&In-Reply-To=%3C2cde12940811021809k6ba9061bpf5375924da2bf5a0%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] SUBSCRIBE Not getting routed to AS">rishinaik9 at gmail.com
+       </A><BR>
+    <I>Mon Nov  3 03:09:41 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000129.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I am running a SIP AS on sailfin container. I was trying to route the
+SUBSCRIBE request to the AS. I configured the trigger point  as shown by the
+log below:
+
+The UserData XML document which is sent to the S-CSCF:
+&lt;?xml version=&quot;1.0&quot;
+encoding=&quot;UTF-8&quot;?&gt;&lt;IMSSubscription&gt;&lt;PrivateID&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>
+&lt;/PrivateID&gt;&lt;ServiceProfile&gt;&lt;PublicIdentity&gt;&lt;Identity&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>
+&lt;/Identity&gt;&lt;Extension&gt;&lt;IdentityType&gt;0&lt;/IdentityType&gt;&lt;/Extension&gt;&lt;/PublicIdentity&gt;&lt;InitialFilterCriteria&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;TriggerPoint&gt;&lt;ConditionTypeCNF&gt;1&lt;/ConditionTypeCNF&gt;&lt;SPT&gt;&lt;ConditionNegated&gt;0&lt;/ConditionNegated&gt;&lt;Group&gt;0&lt;/Group&gt;&lt;Method&gt;SUBSCRIBE&lt;/Method&gt;&lt;Extension&gt;&lt;/Extension&gt;&lt;/SPT&gt;&lt;/TriggerPoint&gt;&lt;ApplicationServer&gt;&lt;ServerName&gt;sip:
+127.0.0.1:5060
+&lt;/ServerName&gt;&lt;DefaultHandling&gt;0&lt;/DefaultHandling&gt;&lt;/ApplicationServer&gt;&lt;/InitialFilterCriteria&gt;&lt;/ServiceProfile&gt;&lt;/IMSSubscription&gt;
+
+But, the SUBSCRIBE request with registration event was not getting routed.
+changing CNF&lt;=&gt; DNF did not help either. I was successful in routing
+REGISTER and INVITE requests to the AS with appropriate trigger point
+configuration.
+
+I am using XLite softphone and the ports used by the processes are as
+follows:
+
+P-CSCF : 4060
+I-CSCF  : 5050
+S-CSCF: 6060
+AS        : 5060
+Xlite client:: 5061
+
+I have attached the trace with this mail. It would be great if anyone can
+help me in this regard.
+
+Thanks,
+Rishikesh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081102/40d2bd51/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081102/40d2bd51/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: trace.pcap
+Type: application/octet-stream
+Size: 17009 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081102/40d2bd51/attachment.obj">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081102/40d2bd51/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000129.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

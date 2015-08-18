@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Not%20able%20to%20register%20with%20OpenIMScore%0A%09onthe%20same%20machine&In-Reply-To=%3C6C8EB206B639498898849C08BB0AF909%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000115.html">
+   <LINK REL="Next"  HREF="000117.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Not%20able%20to%20register%20with%20OpenIMScore%0A%09onthe%20same%20machine&In-Reply-To=%3C6C8EB206B639498898849C08BB0AF909%40notebook%3E"
+       TITLE="[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine">franz.edler at inode.at
+       </A><BR>
+    <I>Sun Sep 21 20:27:43 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000115.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+        <LI>Next message: <A HREF="000117.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi  Rishikesh,
+
+&gt;<i> But It worked only with MD5 algorithm. For AKA it is giving me following
+</I>&gt;<i> log message on scscf:
+</I>  ...
+&gt;<i> If you can suggest anything then it will be helpful.
+</I>
+Maybe you did not re-configure authentication algorithms correctly.
+- in HSS at Authentication Schemes of Private User Identity
+  Default = Digest-AKAv1-MD5
+- in scscf.cfg  
+  modparam(&quot;scscf&quot;,&quot;registration_default_algorithm&quot;,&quot;AKAv1-MD5&quot;)
+
+-franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000115.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+	<LI>Next message: <A HREF="000117.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

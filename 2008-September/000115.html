@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Not%20able%20to%20register%20with%20OpenIMScore%0A%09onthe%20same%20machine&In-Reply-To=%3C2cde12940809211012y6f285e11t18d6eb83fd05429d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000116.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine</H1>
+    <B>Rishikesh Naik</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Not%20able%20to%20register%20with%20OpenIMScore%0A%09onthe%20same%20machine&In-Reply-To=%3C2cde12940809211012y6f285e11t18d6eb83fd05429d%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine">rishinaik9 at gmail.com
+       </A><BR>
+    <I>Sun Sep 21 19:12:02 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+        <LI>Next message: <A HREF="000116.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+It worked! Thanks! There was a difference in qop usage. I turned that off in
+scscf.cfg. Actually, ims core were of different versions.
+
+But It worked only with MD5 algorithm. For AKA it is giving me following log
+message on scscf:
+
+ DBG:sm_process(): Peer hss.open-ims.test     State R_Open     Event
+R_Rcv_Message
+ 4(7242) DBG:S-CSCF:S_is_authorized: uri=sip:open-ims.test
+nonce=qRiOn02msCrM9L7mzZ0w7DYh10ZcNQAAD9GyNRmruJ4=
+response=c68f2fac62f781c2e4003550243c0bca qop= nc= cnonce= hbody=
+ 4(7242) DBG:S-CSCF:S_is_authorized: UE said:
+c68f2fac62f781c2e4003550243c0bca and we  expect
+0887d9525f9c7307355a20144dc3d3b3 ha1 fed748df587e75c00356d606587af19a
+
+I am also attaching trace file here.
+
+If you can suggest anything then it will be helpful.
+
+Thanks a lot!
+
+-Rishikesh
+
+
+On Sun, Sep 21, 2008 at 8:23 AM, Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">franz.edler at inode.at</A>&gt; wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> &gt; But, when I run the OpenIMSCore and ims-communicator client on different
+</I>&gt;<i> &gt; machines with proper configuration, I am able to register the client
+</I>&gt;<i> &gt; successfully with the core and I am able to establish a call to other ims
+</I>&gt;<i> &gt; client as well.
+</I>&gt;<i>
+</I>&gt;<i> You should compare the both traces to see the difference (Authorization
+</I>&gt;<i> header field?)and if it is not clear than, add an scscf.log file also.
+</I>&gt;<i>
+</I>&gt;<i> -franz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080921/e3bca2e8/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080921/e3bca2e8/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: AKA.pcap
+Type: application/octet-stream
+Size: 15616 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080921/e3bca2e8/attachment.obj">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080921/e3bca2e8/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+	<LI>Next message: <A HREF="000116.html">[imscommunicator-users] Not able to register with OpenIMScore	onthe same machine
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] About run IMS-communicator with	OPenIMSCore.(can not across Challenging)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20About%20run%20IMS-communicator%20with%0A%09OPenIMSCore.%28can%20not%20across%20Challenging%29&In-Reply-To=%3CAANLkTilZnCCC6NYOa9F4jB5G3CHtLBQEcXllnGrlp60u%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] About run IMS-communicator with	OPenIMSCore.(can not across Challenging)</H1>
+    <B>&#26753;&#27888;&#20262;</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20About%20run%20IMS-communicator%20with%0A%09OPenIMSCore.%28can%20not%20across%20Challenging%29&In-Reply-To=%3CAANLkTilZnCCC6NYOa9F4jB5G3CHtLBQEcXllnGrlp60u%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] About run IMS-communicator with	OPenIMSCore.(can not across Challenging)">liangtailun at gmail.com
+       </A><BR>
+    <I>Wed Jul  7 10:11:13 CEST 2010</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,everyone.
+I had encounter some problem when use IMS-communicator to regist to
+OpenIMSCore.
+I think that maybe about the SQN Synchronization Failure.
+I want to know how can I solve this problem.
+maybe modify IMPI?but how to modify.
+
+follow is packet I capture by wireshark.
+------------------------------------------------------------------------
+REGISTER sip:open-ims.test SIP/2.0
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 1 REGISTER
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;
+Via: SIP/2.0/UDP 0.0.0.0:50055;branch=z9hG4bKa68a271a3026cd3a51f2ae491a9d402b
+
+Max-Forwards: 70
+Expires: 3600
+P-Access-Network-Info: IEEE-802.11
+Authorization: Digest
+username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;&quot;,uri=&quot;open-ims.test&quot;,response=&quot;&quot;,algorithm=AKAv1-MD5
+
+User-Agent: IMS-Communicator 081209
+Supported: path
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 0.0.0.0</A>:50055&gt;
+Content-Length: 0
+
+SIP/2.0 401 Unauthorized - Challenging the UE
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 1 REGISTER
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-7cbc
+Via: SIP/2.0/UDP
+0.0.0.0:50055;received=127.0.0.1;rport=50055;received=127.0.0.1;branch=z9hG4bKa68a271a3026cd3a51f2ae491a9d402b
+
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, PUBLISH,
+MESSAGE, INFO
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=4200
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;0Z8FE9sY9hlJa1KPm20Q3YFJNM5SvAAAVPlcuhhs7Vc=&quot;, algorithm=AKAv1-MD5,
+qop=&quot;auth,auth-int&quot;
+
+REGISTER sip:open-ims.test SIP/2.0
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 2 REGISTER
+Via: SIP/2.0/UDP 0.0.0.0:50055;branch=z9hG4bK8ddea1c1e0fb6fe8c8b84a51cc38923b
+
+Max-Forwards: 70
+Expires: 3600
+P-Access-Network-Info: IEEE-802.11
+User-Agent: IMS-Communicator 081209
+Supported: path
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 0.0.0.0</A>:50055&gt;
+Authorization: Digest
+username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;0Z8FE9sY9hlJa1KPm20Q3YFJNM5SvAAAVPlcuhhs7Vc=&quot;,uri=&quot;sip:open-ims.test&quot;,response=&quot;6d6a62821d5e6211fa71842d9f968689&quot;,algorithm=AKAv1-MD5,qop=auth-int,cnonce=&quot;0a4f113b&quot;,nc=00000001,auts=&quot;j7LSbACW6tQL995S+mM=&quot;
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;
+Content-Length: 0
+
+SIP/2.0 401 Unauthorized - Challenging the UE
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 2 REGISTER
+Via: SIP/2.0/UDP
+0.0.0.0:50055;received=127.0.0.1;rport=50055;received=127.0.0.1;branch=z9hG4bK8ddea1c1e0fb6fe8c8b84a51cc38923b
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-0761
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, PUBLISH,
+MESSAGE, INFO
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=4202
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;gHGik2+RYECa4+AJfE4Lxcf76yZ3pAAAkC1AyGT4wUU=&quot;, algorithm=AKAv1-MD5,
+qop=&quot;auth,auth-int&quot;
+
+REGISTER sip:open-ims.test SIP/2.0
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 3 REGISTER
+Via: SIP/2.0/UDP 0.0.0.0:50055;branch=z9hG4bK0c8204120b2128a20a3c629bc9a96b8d
+
+Max-Forwards: 70
+Expires: 3600
+P-Access-Network-Info: IEEE-802.11
+User-Agent: IMS-Communicator 081209
+Supported: path
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 0.0.0.0</A>:50055&gt;
+Authorization: Digest
+username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;gHGik2+RYECa4+AJfE4Lxcf76yZ3pAAAkC1AyGT4wUU=&quot;,uri=&quot;sip:open-ims.test&quot;,response=&quot;20f77c2936e208e66f74802a4f8c94bf&quot;,algorithm=AKAv1-MD5,qop=auth-int,cnonce=&quot;0a4f113b&quot;,nc=00000001,auts=&quot;EJAkO/fzYXhdcvVAyAk=&quot;
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;
+Content-Length: 0
+
+SIP/2.0 401 Unauthorized - Challenging the UE
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 3 REGISTER
+Via: SIP/2.0/UDP
+0.0.0.0:50055;received=127.0.0.1;rport=50055;received=127.0.0.1;branch=z9hG4bK0c8204120b2128a20a3c629bc9a96b8d
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-4d60
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, PUBLISH,
+MESSAGE, INFO
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=4200
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;nGqtW8Ev9vNp9zOKiizzVEN9p83yqAAA+l+Dyn7691c=&quot;, algorithm=AKAv1-MD5,
+qop=&quot;auth,auth-int&quot;
+
+REGISTER sip:open-ims.test SIP/2.0
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 3 REGISTER
+Via: SIP/2.0/UDP 0.0.0.0:50055;branch=z9hG4bK0c8204120b2128a20a3c629bc9a96b8d
+
+Max-Forwards: 70
+Expires: 3600
+P-Access-Network-Info: IEEE-802.11
+User-Agent: IMS-Communicator 081209
+Supported: path
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 0.0.0.0</A>:50055&gt;
+Authorization: Digest
+username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;gHGik2+RYECa4+AJfE4Lxcf76yZ3pAAAkC1AyGT4wUU=&quot;,uri=&quot;sip:open-ims.test&quot;,response=&quot;20f77c2936e208e66f74802a4f8c94bf&quot;,algorithm=AKAv1-MD5,qop=auth-int,cnonce=&quot;0a4f113b&quot;,nc=00000001,auts=&quot;EJAkO/fzYXhdcvVAyAk=&quot;
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;
+Content-Length: 0
+
+SIP/2.0 401 Unauthorized - Challenging the UE
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 3 REGISTER
+Via: SIP/2.0/UDP
+0.0.0.0:50055;received=127.0.0.1;rport=50055;received=127.0.0.1;branch=z9hG4bK0c8204120b2128a20a3c629bc9a96b8d
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-4d60
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, PUBLISH,
+MESSAGE, INFO
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=4200
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;nGqtW8Ev9vNp9zOKiizzVEN9p83yqAAA+l+Dyn7691c=&quot;, algorithm=AKAv1-MD5,
+qop=&quot;auth,auth-int&quot;
+
+REGISTER sip:open-ims.test SIP/2.0
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 4 REGISTER
+Via: SIP/2.0/UDP 0.0.0.0:50055;branch=z9hG4bKa5c8b1f3003c196de070be1e04891900
+
+Max-Forwards: 70
+Expires: 3600
+P-Access-Network-Info: IEEE-802.11
+User-Agent: IMS-Communicator 081209
+Supported: path
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 0.0.0.0</A>:50055&gt;
+Authorization: Digest
+username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;nGqtW8Ev9vNp9zOKiizzVEN9p83yqAAA+l+Dyn7691c=&quot;,uri=&quot;sip:open-ims.test&quot;,response=&quot;687d2fd15329695160b9c66e03eaf8be&quot;,algorithm=AKAv1-MD5,qop=auth-int,cnonce=&quot;0a4f113b&quot;,nc=00000001,auts=&quot;BD5hvtXDqIDfKP1nyrw=&quot;
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;
+Content-Length: 0
+
+SIP/2.0 401 Unauthorized - Challenging the UE
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">1d8672c08becc20a5d731494a42d183d at 0.0.0.0</A>
+CSeq: 4 REGISTER
+Via: SIP/2.0/UDP
+0.0.0.0:50055;received=127.0.0.1;rport=50055;received=127.0.0.1;branch=z9hG4bKa5c8b1f3003c196de070be1e04891900
+
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=31292357
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-6744
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, PUBLISH,
+MESSAGE, INFO
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=4201
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;PgNAimxKOJiVCG4btoY/6WrofKx42QAALrmVtNimXiE=&quot;, algorithm=AKAv1-MD5,
+qop=&quot;auth,auth-int&quot;
+
+-----------------------------------------------------------------------------
+thanks for your help.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20100707/71f5980c/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20100707/71f5980c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] AKA Authentication issues with	IMSCommunicator and OpenIMS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20AKA%20Authentication%20issues%20with%0A%09IMSCommunicator%20and%20OpenIMS&In-Reply-To=%3C15184ca00804090031k15a9d139uf5cc1ceb7ef577c0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000090.html">
+   <LINK REL="Next"  HREF="000092.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] AKA Authentication issues with	IMSCommunicator and OpenIMS</H1>
+    <B>Devdutt Patnaik</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20AKA%20Authentication%20issues%20with%0A%09IMSCommunicator%20and%20OpenIMS&In-Reply-To=%3C15184ca00804090031k15a9d139uf5cc1ceb7ef577c0%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] AKA Authentication issues with	IMSCommunicator and OpenIMS">xendevid at gmail.com
+       </A><BR>
+    <I>Wed Apr  9 09:31:02 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000090.html">[imscommunicator-users] OpenSER on top of OpenIMSCore
+</A></li>
+        <LI>Next message: <A HREF="000092.html">[imscommunicator-users] AKA Authentication issues with	IMSCommunicator and OpenIMS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#91">[ date ]</a>
+              <a href="thread.html#91">[ thread ]</a>
+              <a href="subject.html#91">[ subject ]</a>
+              <a href="author.html#91">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>
+</I>&gt;<i> Hi All,
+</I>&gt;<i>
+</I>&gt;<i> I have been trying to get IMS Communicator ( downloaded binaries for linux
+</I>&gt;<i> ) to OpenIMS using AKAv1_MD5, but havent got it to work yet.
+</I>&gt;<i>
+</I>&gt;<i> The steps I followed were :
+</I>&gt;<i>
+</I>&gt;<i> 1 &gt; Set the authentication type to AKAv1-MD5 in the scscf.cfg. Do I need
+</I>&gt;<i> to change anything in the hss.properties file ? Start the core.
+</I>&gt;<i> 2 &gt; Change the HSS entries in the Web Console for this user to AKAv1-MD5.
+</I>&gt;<i> 3 &gt; Set the IMS Communicator values to :
+</I>&gt;<i>
+</I>&gt;<i> &lt;ims&gt;
+</I>&gt;<i>                 &lt;IMS_CLIENT value=&quot;true&quot;/&gt;
+</I>&gt;<i>                 &lt;PRIVATE_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.gtisc.gatech.edu</A>&quot;/&gt;
+</I>&gt;<i>                 &lt;PREFERRED_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.gtisc.gatech.edu</A>&quot;/&gt;
+</I>&gt;<i>                 &lt;PREFERRED_DISPLAY_NAME value=&quot;bob&quot;/&gt;
+</I>&gt;<i>                 &lt;ACCEPT_REFER_WITHOUT_SESSION_ON value=&quot;true&quot;/&gt;
+</I>&gt;<i>                 &lt;REFER_TIMEOUT value=&quot;60000&quot;/&gt;
+</I>&gt;<i>                 &lt;REG_EVENT_SUBSCRIPTION_TIMEOUT value=&quot;600000&quot;/&gt;
+</I>&gt;<i>                 &lt;ACCESS_TYPE value=&quot;IEEE-802.11&quot;/&gt;
+</I>&gt;<i>                 &lt;DEFAULT_LOCAL_PRECONDITION value=&quot;sendrecv&quot;/&gt;
+</I>&gt;<i>                 &lt;VIDEO_BANDWIDTH value=&quot;75&quot;/&gt;
+</I>&gt;<i>                 &lt;AUDIO_BANDWIDTH value=&quot;25&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i>                 &lt;!-- testing feature --&gt;
+</I>&gt;<i>                 &lt;PCSCF_DYNAMIC_DISCOVERY value=&quot;false&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i>                 &lt;sec&gt;
+</I>&gt;<i>                     &lt;PRIVACY value=&quot;none&quot;/&gt;
+</I>&gt;<i>                     &lt;AUTH_ALGORITHM value=&quot;AKAv1_MD5&quot;/&gt;
+</I>&gt;<i>                     &lt;!-- operator ID : 16 bytes (32 hex char) --&gt;
+</I>&gt;<i>                     &lt;OPERATOR_ID
+</I>&gt;<i> value=&quot;00000000000000000000000000000000&quot;/&gt;
+</I>&gt;<i>                     &lt;!-- if SECURITY_AGREEMENT value is empty,
+</I>&gt;<i> Security-Client header is not sent and IPSec not setup --&gt;
+</I>&gt;<i>                     &lt;!--SECURITY_AGREEMENT value=&quot;ipsec-3gpp&quot;/--&gt;
+</I>&gt;<i>                     &lt;SECURITY_AGREEMENT value=&quot;&quot;/&gt;
+</I>&gt;<i>                     &lt;SECURITY_ALGORITHM value=&quot;hmac-sha-1-96&quot;/&gt;
+</I>&gt;<i>                     &lt;SECURITY_ENCRYPT_ALG value=&quot;&quot;/&gt;
+</I>&gt;<i>                     &lt;SECURITY_SPI_C value=&quot;10002&quot;/&gt;
+</I>&gt;<i>                     &lt;SECURITY_SPI_S value=&quot;10004&quot;/&gt;
+</I>&gt;<i>                     &lt;!-- if SECURITY_PORT_C empty, port-c parameter is
+</I>&gt;<i> filled with PREFERRED_LOCAL_PORT--&gt;
+</I>&gt;<i>                     &lt;SECURITY_PORT_C value=&quot;&quot;/&gt;
+</I>&gt;<i>                     &lt;SECURITY_PORT_S value=&quot;5064&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i>                     &lt;REJECT_MALFORMED_NONCE value=&quot;false&quot;/&gt;
+</I>&gt;<i>                 &lt;/sec&gt;
+</I>&gt;<i>             &lt;/ims&gt;
+</I>&gt;<i>
+</I>&gt;<i>  However the authentication fails. Are my steps correct or have I missed
+</I>&gt;<i> out any step ? Please let me know. Its kinda urgent :|.
+</I>
+
+&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Devdutt.
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080409/d372a9eb/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20080409/d372a9eb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000090.html">[imscommunicator-users] OpenSER on top of OpenIMSCore
+</A></li>
+	<LI>Next message: <A HREF="000092.html">[imscommunicator-users] AKA Authentication issues with	IMSCommunicator and OpenIMS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#91">[ date ]</a>
+              <a href="thread.html#91">[ thread ]</a>
+              <a href="subject.html#91">[ subject ]</a>
+              <a href="author.html#91">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

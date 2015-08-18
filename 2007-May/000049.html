@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Failed to resend a request after a security	challenge
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Failed%20to%20resend%20a%20request%20after%20a%20security%0A%09challenge&In-Reply-To=%3CBAY133-F3106CF9F7388E341E68CD9C22F0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000048.html">
+   <LINK REL="Next"  HREF="000050.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Failed to resend a request after a security	challenge</H1>
+    <B>li wang</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Failed%20to%20resend%20a%20request%20after%20a%20security%0A%09challenge&In-Reply-To=%3CBAY133-F3106CF9F7388E341E68CD9C22F0%40phx.gbl%3E"
+       TITLE="[imscommunicator-users] Failed to resend a request after a security	challenge">li.wang119 at hotmail.com
+       </A><BR>
+    <I>Tue May 29 14:40:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000048.html">[imscommunicator-users] Failed to resend a request after a security	challenge
+</A></li>
+        <LI>Next message: <A HREF="000050.html">[imscommunicator-users] MediaException: Couldn't set any of the	tracks to a valid RTP format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi,
+
+I'm using ims-communicator on Open IMS Core but I cant' successfully 
+register my client, it always require me to enter the password for the 
+specified realm.
+The Open IMS Core is running in the same host with ims-communicator.
+
+I attache you the file ims-communicator.xml.
+
+the log file:
+
+SipManager encountered the following error
+Failed to resend a request after a security challenge!
+
+net.java.sip.communicator.sip.CommunicationsException: Failed to resend a 
+request after a security challenge!
+	at 
+net.java.sip.communicator.sip.RegisterProcessing.processAuthenticationChallenge(RegisterProcessing.java:371)
+	at 
+net.java.sip.communicator.sip.SipManager.processResponse(SipManager.java:2811)
+	at gov.nist.javax.sip.EventScanner.deliverEvent(EventScanner.java:220)
+	at gov.nist.javax.sip.EventScanner.run(EventScanner.java:324)
+	at java.lang.Thread.run(Thread.java:595)
+Caused by: java.lang.NullPointerException
+	at 
+net.java.sip.communicator.sip.security.SipSecurityManager.handleChallenge(SipSecurityManager.java:307)
+	at 
+net.java.sip.communicator.sip.RegisterProcessing.processAuthenticationChallenge(RegisterProcessing.java:351)
+	... 4 more
+
+Thanks in advance.
+
+li
+
+_________________________________________________________________
+Windows Live Spaces : cr&#233;ez votre blog &#224; votre image ! 
+<A HREF="http://www.windowslive.fr/spaces">http://www.windowslive.fr/spaces</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ims-communicator.xml
+Type: text/xml
+Size: 7202 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070529/3db371c8/attachment.xml">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20070529/3db371c8/attachment.xml</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000048.html">[imscommunicator-users] Failed to resend a request after a security	challenge
+</A></li>
+	<LI>Next message: <A HREF="000050.html">[imscommunicator-users] MediaException: Couldn't set any of the	tracks to a valid RTP format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

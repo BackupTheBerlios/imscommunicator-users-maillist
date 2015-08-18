@@ -1,0 +1,427 @@
+From jskhairatkar at tatapowersed.com  Tue Jul 17 08:46:59 2012
+From: jskhairatkar at tatapowersed.com (jskhairatkar at tatapowersed.com)
+Date: Tue, 17 Jul 2012 12:16:59 +0530
+Subject: [imscommunicator-users] (no subject)
+Message-ID: <201207170646.q6H6kx85009174@mum.tatapowersed.com>
+
+Hello,
+  I am getting the following message in wireshark when I am trying to register IMS Client, IMS Communicator with Open IMS Core.
+  Status: 401 Unauthorized - Challenging the UE.
+
+I have already registered an Xlite SIP Client with the server using MD5 algorithm as the setting, so I think it has something to do with the way I configured IMSCommunicator. I am pasting below IMSCommunicator.xml
+
+The IP of the machine where IMSCommuicator is operating is 172.20.209.102
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+<log4j>
+    <rootLogger value="net.java.sip.communicator.common.Console.TraceLevel, RFLogger"/>
+    <appender>
+        <RFLogger value="org.apache.log4j.RollingFileAppender">
+            <layout value="org.apache.log4j.PatternLayout">
+                <ConversionPattern value="%r [%t] %p %c{2} %x - %m%n"/>
+            </layout>
+            <MaxBackupIndex value="1"/>
+            <File value="log/ims-communicator.app.log"/>
+            <MaxFileSize value="256KB"/>
+        </RFLogger>
+    </appender>
+</log4j>
+<net>
+  <java>
+    <sip>
+      <communicator>
+          <FIRST_LAUNCH value="false"/>
+          <ENABLE_SIMPLE value="false"/>
+          <media>
+<!---         <PREFERRED_AUDIO_ENCODING system="false" value=""/> -->
+            <PREFERRED_AUDIO_ENCODING value="0"/>
+            <PREFERRED_VIDEO_ENCODING value="34"/>
+            <NO_AUDIO_DESCRIPTION_IN_SDP value="false"/>
+            <NO_VIDEO_DESCRIPTION_IN_SDP value="false"/>
+            <MEDIA_SOURCE value=""/>
+            <MEDIA_BUFFER_LENGTH value="100"/>
+            <IP_ADDRESS value=""/>
+            <AUDIO_PORT value=""/>
+            <VIDEO_PORT value=""/>
+        </media>
+        <sip>
+            <PUBLIC_ADDRESS value="sip:bob at open-ims.test"/>
+            <TRANSPORT value=""/>
+            <REGISTRAR_ADDRESS value="open-ims.test"/>
+            <USER_NAME value="bob at open-ims.test"/>
+            <STACK_PATH value="gov.nist"/>
+            <PREFERRED_LOCAL_PORT value="5060"/>
+            <DISPLAY_NAME value="bob"/>
+            <REGISTRAR_TRANSPORT value="UDP"/>
+            <REGISTRATIONS_EXPIRATION value="3600"/>
+            <REGISTRAR_PORT value="5060"/>
+            <FAIL_CALLS_ON_DEST_USER_MISMATCH value="false"/>
+            <DEFAULT_DOMAIN_NAME value="open-ims.test"/> 
+            <DEFAULT_AUTHENTICATION_REALM value="open-ims.test"/> 
+            <WAIT_UNREGISTGRATION_FOR value="1100"/>
+            <SAME_USER_EVERYWHERE value="true"/>
+            <ACCEPT_EARLY_MEDIA value="true"/>
+            
+<!-- IMS Client -->
+
+            <ims>
+                <IMS_CLIENT value="true"/>
+                <PRIVATE_ADDRESS value="bob at open-ims.test"/>
+                <PREFERRED_ADDRESS value="sip:bob at open-ims.test"/>
+                <PREFERRED_DISPLAY_NAME value=""/>
+                <ACCEPT_REFER_WITHOUT_SESSION_ON value="true"/>
+                <REFER_TIMEOUT value="60000"/>
+                <REG_EVENT_SUBSCRIPTION_TIMEOUT value="600000"/>
+                <ACCESS_TYPE value="IEEE-802.11"/>
+                <DEFAULT_LOCAL_PRECONDITION value="sendrecv"/>
+                <VIDEO_BANDWIDTH value="75"/>
+                <AUDIO_BANDWIDTH value="25"/>
+              
+                <!-- testing feature -->
+                <PCSCF_DYNAMIC_DISCOVERY value="false"/>
+              
+                <sec>
+	                <PRIVACY_PARAMS value=""/>
+					<USE_IPSEC value="false"/>
+					<!-- supported values are "AKAv1-MD5" and "MD5" /-->
+	                <AUTH_ALGORITHM value="MD5"/>
+	                <SECURITY_AGREEMENT value="ipsec-3gpp"/>
+	                <SECURITY_ALGORITHM value="hmac-sha-1-96"/>
+	                <SECURITY_ENCRYPT_ALG value=""/>
+					<!-- operator ID : 16 bytes (32 hex char) -->
+	                <OPERATOR_ID value="00000000000000000000000000000000"/>
+	                <!-- if local port is != 5060/5061, local port is used for IPSec SA -->
+					<PROTECT_PREFERRED_LOCAL_PORT value="true"/>
+                    <REJECT_MALFORMED_NONCE value="false"/>
+                    
+                    <!-- 16 bytes (32 hex char) -->
+                    <SHARED_SECRET value=""/>
+                </sec>
+            </ims>
+            
+<!-- end of IMS Client -->
+            
+            <simple>
+                <CONTACT_LIST_FILE value="contact-list.xml"/>
+                <SUBSCRIPTION_EXP_TIME value="150"/>
+                <MIN_EXP_TIME value="60"/>
+                <LAST_SELECTED_OPEN_STATUS value="busy"/>
+            </simple>
+            
+        	<EXCESSIVE_URI_CHARACTERS value="( )"/>
+        	
+        	<!-- value in seconds. If not empty, include the following headers in the initial invite -->
+        	<MIN_SE value=""/>
+        	<SESSION_EXPIRES value=""/>
+		</sip>
+        
+        <gui>
+            <AUTH_WIN_TITLE value="SIP Authentication!"/>
+            <AUTHENTICATION_PROMPT value="Please enter login name and password for the specified realm:"/>
+            <USER_NAME_LABEL value="User Name:"/>
+            <USER_NAME_EXAMPLE value="Example: testes1"/>
+            <PASSWORD_LABEL value="Password:"/>
+            <!--GUI_MODE value="PhoneUiMode"/-->
+            <PHONE_GUI_MODE value="true"/>
+            <IM_GUI_MODE value="false"/>
+            <imp>
+                <CONTACT_LIST_X value="185"/>
+                <CONTACT_LIST_Y value="165"/>
+                <CONTACT_LIST_WIDTH value="157"/>
+                <CONTACT_LIST_HEIGHT value="433"/>
+            </imp>
+            <logo>
+            	<MAIN_LOGO value="default-logo.jpg"/>
+            	<PHONE_GUI_ICON value="default-icon.jpg"/>
+            	<IM_GUI_ICON value="presence-icon.jpg"/>
+            </logo>
+        </gui>
+        
+        <common>
+            <PREFERRED_NETWORK_INTERFACE value="Realtek RTL8168C(P)/8111C(P) PCI-E Gigabit Ethernet NIC - Packet Scheduler Miniport"/>
+            <PREFERRED_NETWORK_ADDRESS value="172.20.209.102"/>
+        </common>
+
+
+<!--
+    net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false
+    net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=http://my.sipphone.com
+-->
+        <sipphone>
+            <IS_RUNNING_SIPPHONE value="false"/>
+            <MY_SIPPHONE_URL value="http://my.sipphone.com"/>
+        <USER_NAME_EXAMPLE value="testes1"/>
+</sipphone>
+<!--
+net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!
+net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name and password for the specified realm:
+net.java.sip.communicator.gui.USER_NAME_LABEL=SIPphone Number:
+net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=Example: 1-747-555-1212
+net.java.sip.communicator.gui.PASSWORD_LABEL=Password:
+-->
+
+<!--
+    net.java.sip.communicator.STUN_SERVER_ADDRESS=stun01.sipphone.com
+    net.java.sip.communicator.STUN_SERVER_PORT=3478
+    net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212
+-->
+        <!--STUN_SERVER_ADDRESS value="stun01.sipphone.com"/-->
+        <!--STUN_SERVER_PORT value="3478"/-->
+        <VOICE_MAIL_ADDRESS value="17475551212"/>
+</communicator>
+    </sip>
+  </java>
+</net>
+    <gov>
+    <nist>
+        <javax>
+            <sip>
+                <SERVER_LOG value="log/ims-communicator.stack.log"/>
+                <DEBUG_LOG value="log/ims-communicator.debug.log"/>
+                <BAD_MESSAGE_LOG value="log/ims-communicator.ignored.log"/>
+				<!-- TRACE_LEVEL: 16 for stack log..  or 32 for both stack and debug log/-->
+                <TRACE_LEVEL value="16"/>
+            </sip>
+        </javax>
+    </nist>
+</gov>
+<javax>
+    <sip>
+        <IP_ADDRESS value="172.20.209.102"/>
+        <STACK_NAME value="sip-communicator"/>
+        <ROUTER_PATH value="net.java.sip.communicator.sip.SipCommRouter"/>
+        <!-- important: sip outbound proxy format is <address>:<port>/<transport> -->
+        <OUTBOUND_PROXY value="pcscf.open-ims.test:4060/udp"/>
+        <RETRANSMISSON_FILTER value=""/>
+        <EXTENSION_METHODS value=""/>
+        <RETRANSMISSION_FILTER value="true"/>
+    </sip>
+</javax>
+<java>
+    <net>
+        <preferIPv4Stack system="true" value="true"/>
+        <preferIPv6Addresses system="false" value="false"/>
+    </net>
+</java>
+</configuration>
+
+I will be grateful for any kind of help.
+
+Thanks and Regards
+ Jaytirth 
+
+From jskhairatkar at tatapowersed.com  Tue Jul 17 08:47:58 2012
+From: jskhairatkar at tatapowersed.com (jskhairatkar at tatapowersed.com)
+Date: Tue, 17 Jul 2012 12:17:58 +0530
+Subject: [imscommunicator-users] Status: 401 Unauthorized - Challenging the
+	UE.
+Message-ID: <201207170647.q6H6lwlT009527@mum.tatapowersed.com>
+
+Hello,
+  I am getting the following message in wireshark when I am trying to register IMS Client, IMS Communicator with Open IMS Core.
+  Status: 401 Unauthorized - Challenging the UE.
+
+I have already registered an Xlite SIP Client with the server using MD5 algorithm as the setting, so I think it has something to do with the way I configured IMSCommunicator. I am pasting below IMSCommunicator.xml
+
+The IP of the machine where IMSCommuicator is operating is 172.20.209.102
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+<log4j>
+    <rootLogger value="net.java.sip.communicator.common.Console.TraceLevel, RFLogger"/>
+    <appender>
+        <RFLogger value="org.apache.log4j.RollingFileAppender">
+            <layout value="org.apache.log4j.PatternLayout">
+                <ConversionPattern value="%r [%t] %p %c{2} %x - %m%n"/>
+            </layout>
+            <MaxBackupIndex value="1"/>
+            <File value="log/ims-communicator.app.log"/>
+            <MaxFileSize value="256KB"/>
+        </RFLogger>
+    </appender>
+</log4j>
+<net>
+  <java>
+    <sip>
+      <communicator>
+          <FIRST_LAUNCH value="false"/>
+          <ENABLE_SIMPLE value="false"/>
+          <media>
+<!---         <PREFERRED_AUDIO_ENCODING system="false" value=""/> -->
+            <PREFERRED_AUDIO_ENCODING value="0"/>
+            <PREFERRED_VIDEO_ENCODING value="34"/>
+            <NO_AUDIO_DESCRIPTION_IN_SDP value="false"/>
+            <NO_VIDEO_DESCRIPTION_IN_SDP value="false"/>
+            <MEDIA_SOURCE value=""/>
+            <MEDIA_BUFFER_LENGTH value="100"/>
+            <IP_ADDRESS value=""/>
+            <AUDIO_PORT value=""/>
+            <VIDEO_PORT value=""/>
+        </media>
+        <sip>
+            <PUBLIC_ADDRESS value="sip:bob at open-ims.test"/>
+            <TRANSPORT value=""/>
+            <REGISTRAR_ADDRESS value="open-ims.test"/>
+            <USER_NAME value="bob at open-ims.test"/>
+            <STACK_PATH value="gov.nist"/>
+            <PREFERRED_LOCAL_PORT value="5060"/>
+            <DISPLAY_NAME value="bob"/>
+            <REGISTRAR_TRANSPORT value="UDP"/>
+            <REGISTRATIONS_EXPIRATION value="3600"/>
+            <REGISTRAR_PORT value="5060"/>
+            <FAIL_CALLS_ON_DEST_USER_MISMATCH value="false"/>
+            <DEFAULT_DOMAIN_NAME value="open-ims.test"/> 
+            <DEFAULT_AUTHENTICATION_REALM value="open-ims.test"/> 
+            <WAIT_UNREGISTGRATION_FOR value="1100"/>
+            <SAME_USER_EVERYWHERE value="true"/>
+            <ACCEPT_EARLY_MEDIA value="true"/>
+            
+<!-- IMS Client -->
+
+            <ims>
+                <IMS_CLIENT value="true"/>
+                <PRIVATE_ADDRESS value="bob at open-ims.test"/>
+                <PREFERRED_ADDRESS value="sip:bob at open-ims.test"/>
+                <PREFERRED_DISPLAY_NAME value=""/>
+                <ACCEPT_REFER_WITHOUT_SESSION_ON value="true"/>
+                <REFER_TIMEOUT value="60000"/>
+                <REG_EVENT_SUBSCRIPTION_TIMEOUT value="600000"/>
+                <ACCESS_TYPE value="IEEE-802.11"/>
+                <DEFAULT_LOCAL_PRECONDITION value="sendrecv"/>
+                <VIDEO_BANDWIDTH value="75"/>
+                <AUDIO_BANDWIDTH value="25"/>
+              
+                <!-- testing feature -->
+                <PCSCF_DYNAMIC_DISCOVERY value="false"/>
+              
+                <sec>
+	                <PRIVACY_PARAMS value=""/>
+					<USE_IPSEC value="false"/>
+					<!-- supported values are "AKAv1-MD5" and "MD5" /-->
+	                <AUTH_ALGORITHM value="MD5"/>
+	                <SECURITY_AGREEMENT value="ipsec-3gpp"/>
+	                <SECURITY_ALGORITHM value="hmac-sha-1-96"/>
+	                <SECURITY_ENCRYPT_ALG value=""/>
+					<!-- operator ID : 16 bytes (32 hex char) -->
+	                <OPERATOR_ID value="00000000000000000000000000000000"/>
+	                <!-- if local port is != 5060/5061, local port is used for IPSec SA -->
+					<PROTECT_PREFERRED_LOCAL_PORT value="true"/>
+                    <REJECT_MALFORMED_NONCE value="false"/>
+                    
+                    <!-- 16 bytes (32 hex char) -->
+                    <SHARED_SECRET value=""/>
+                </sec>
+            </ims>
+            
+<!-- end of IMS Client -->
+            
+            <simple>
+                <CONTACT_LIST_FILE value="contact-list.xml"/>
+                <SUBSCRIPTION_EXP_TIME value="150"/>
+                <MIN_EXP_TIME value="60"/>
+                <LAST_SELECTED_OPEN_STATUS value="busy"/>
+            </simple>
+            
+        	<EXCESSIVE_URI_CHARACTERS value="( )"/>
+        	
+        	<!-- value in seconds. If not empty, include the following headers in the initial invite -->
+        	<MIN_SE value=""/>
+        	<SESSION_EXPIRES value=""/>
+		</sip>
+        
+        <gui>
+            <AUTH_WIN_TITLE value="SIP Authentication!"/>
+            <AUTHENTICATION_PROMPT value="Please enter login name and password for the specified realm:"/>
+            <USER_NAME_LABEL value="User Name:"/>
+            <USER_NAME_EXAMPLE value="Example: testes1"/>
+            <PASSWORD_LABEL value="Password:"/>
+            <!--GUI_MODE value="PhoneUiMode"/-->
+            <PHONE_GUI_MODE value="true"/>
+            <IM_GUI_MODE value="false"/>
+            <imp>
+                <CONTACT_LIST_X value="185"/>
+                <CONTACT_LIST_Y value="165"/>
+                <CONTACT_LIST_WIDTH value="157"/>
+                <CONTACT_LIST_HEIGHT value="433"/>
+            </imp>
+            <logo>
+            	<MAIN_LOGO value="default-logo.jpg"/>
+            	<PHONE_GUI_ICON value="default-icon.jpg"/>
+            	<IM_GUI_ICON value="presence-icon.jpg"/>
+            </logo>
+        </gui>
+        
+        <common>
+            <PREFERRED_NETWORK_INTERFACE value="Realtek RTL8168C(P)/8111C(P) PCI-E Gigabit Ethernet NIC - Packet Scheduler Miniport"/>
+            <PREFERRED_NETWORK_ADDRESS value="172.20.209.102"/>
+        </common>
+
+
+<!--
+    net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false
+    net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=http://my.sipphone.com
+-->
+        <sipphone>
+            <IS_RUNNING_SIPPHONE value="false"/>
+            <MY_SIPPHONE_URL value="http://my.sipphone.com"/>
+        <USER_NAME_EXAMPLE value="testes1"/>
+</sipphone>
+<!--
+net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!
+net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name and password for the specified realm:
+net.java.sip.communicator.gui.USER_NAME_LABEL=SIPphone Number:
+net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=Example: 1-747-555-1212
+net.java.sip.communicator.gui.PASSWORD_LABEL=Password:
+-->
+
+<!--
+    net.java.sip.communicator.STUN_SERVER_ADDRESS=stun01.sipphone.com
+    net.java.sip.communicator.STUN_SERVER_PORT=3478
+    net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212
+-->
+        <!--STUN_SERVER_ADDRESS value="stun01.sipphone.com"/-->
+        <!--STUN_SERVER_PORT value="3478"/-->
+        <VOICE_MAIL_ADDRESS value="17475551212"/>
+</communicator>
+    </sip>
+  </java>
+</net>
+    <gov>
+    <nist>
+        <javax>
+            <sip>
+                <SERVER_LOG value="log/ims-communicator.stack.log"/>
+                <DEBUG_LOG value="log/ims-communicator.debug.log"/>
+                <BAD_MESSAGE_LOG value="log/ims-communicator.ignored.log"/>
+				<!-- TRACE_LEVEL: 16 for stack log..  or 32 for both stack and debug log/-->
+                <TRACE_LEVEL value="16"/>
+            </sip>
+        </javax>
+    </nist>
+</gov>
+<javax>
+    <sip>
+        <IP_ADDRESS value="172.20.209.102"/>
+        <STACK_NAME value="sip-communicator"/>
+        <ROUTER_PATH value="net.java.sip.communicator.sip.SipCommRouter"/>
+        <!-- important: sip outbound proxy format is <address>:<port>/<transport> -->
+        <OUTBOUND_PROXY value="pcscf.open-ims.test:4060/udp"/>
+        <RETRANSMISSON_FILTER value=""/>
+        <EXTENSION_METHODS value=""/>
+        <RETRANSMISSION_FILTER value="true"/>
+    </sip>
+</javax>
+<java>
+    <net>
+        <preferIPv4Stack system="true" value="true"/>
+        <preferIPv6Addresses system="false" value="false"/>
+    </net>
+</java>
+</configuration>
+
+I will be grateful for any kind of help.
+
+Thanks and Regards
+ Jaytirth 
+

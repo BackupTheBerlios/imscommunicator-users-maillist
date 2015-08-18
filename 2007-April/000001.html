@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] [Imscommunicator-users] Questions on	transport protocol and IPsecimplementation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20%5BImscommunicator-users%5D%20Questions%20on%0A%09transport%20protocol%20and%20IPsecimplementation&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC069%40INOAVREX05.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] [Imscommunicator-users] Questions on	transport protocol and IPsecimplementation</H1>
+    <B>Jos&#233; Miguel Freitas (IT)</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20%5BImscommunicator-users%5D%20Questions%20on%0A%09transport%20protocol%20and%20IPsecimplementation&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC069%40INOAVREX05.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] [Imscommunicator-users] Questions on	transport protocol and IPsecimplementation">it-j-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Fri Apr 20 16:51:09 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Imscommunicator-users] Questions on transport protocol and IPsec	implementation
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[imscommunicator-users] Presence Support in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there...
+About the first question, what are you trying to do? Do you want to send only the Register request with TCP and other requests using UDP? I'm looking into the specs to see if this possibility is mentioned..
+If so, that is not supported by the IMS-Communicator...
+The property &lt;net.java.sip.communicator.sip.REGISTRAR_TRANSPORT/&gt; was inherited from the original SIP-Communicator and the code that adds the transport=tcp parameter to the REGISTER's Request-URI was commented because it is mentioned in the 3GPP TS 24.229 that the REGISTER Request-URI must be equal to the domain name of the home network, and equal to the realm directive of the Authorization header. Do you agree?
+ 
+But, if you want to use TCP, instead of UDP, for all requests and responses, you have to define the property &lt;net.java.sip.communicator.sip.TRANSPORT value=&quot;TCP&quot;/&gt; and also change the transport parameter (to /tcp) in the property &lt;javax.sip.OUTBOUND_PROXY/&gt;.
+ 
+About the second question, the Security Agreement is not yet fully implemented, but we are on our way.
+ 
+Best Regards, 
+Miguel Freitas
+
+________________________________
+
+De: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A> em nome de <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">franz.edler at inode.at</A>
+Enviada: sex 20-04-2007 9:50
+Para: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Assunto: [Imscommunicator-users] Questions on transport protocol and IPsecimplementation
+
+
+
+Hi,
+
+I started some tests on Open-Source-IMS using the IMS-communicator. Two
+questions arise now in the beginning:
+
+1. I have configured &lt;REGISTRAR_TRANSPORT value=&quot;TCP&quot;/&gt; but I see that
+still UDP is used for registering.
+
+2. I expected the client to establish a SA after receiving the
+Security-server parameters in 401 response to REGISTER.
+
+Are those mechanisms not implemented or did I miss something in my
+configuration?
+I have attached a wireshark-trace-file and the configuration-file.
+
+cheers
+Franz
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Imscommunicator-users] Questions on transport protocol and IPsec	implementation
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[imscommunicator-users] Presence Support in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

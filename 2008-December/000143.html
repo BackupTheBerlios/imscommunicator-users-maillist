@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Changing transport to TCP does not work
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Changing%20transport%20to%20TCP%20does%20not%20work&In-Reply-To=%3CAA970528BDC4D3439B10D0D6295E87A62175A61AF5%40INOAVREX11.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000142.html">
+   <LINK REL="Next"  HREF="000144.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Changing transport to TCP does not work</H1>
+    <B>Jos&#233; Miguel Freitas</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Changing%20transport%20to%20TCP%20does%20not%20work&In-Reply-To=%3CAA970528BDC4D3439B10D0D6295E87A62175A61AF5%40INOAVREX11.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] Changing transport to TCP does not work">jose-m-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Wed Dec 10 13:25:49 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000142.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+        <LI>Next message: <A HREF="000144.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Franz,
+The registration of Alice using TCP is successful, except the subscription to the reg-event package.
+Examining to capture, I can see that the 200 OK for SUBSCRIBE and the NOTIFY sent by P-CSCF is not following the original Via: SIP/2.0/TCP 192.169.0.2:5063 sent by the UAC alice when it REGISTERed, and maybe it uses the Request-URI to send it in UDP instead of TCP, hence the &quot;port unreachable&quot;.
+
+The session establishment between Alice and Bob seams OK. Alice is the UAC and the responses sent by Bob follows the Via path. But when requests are sent to alice, they arrive in UDP! That's why the BYE sent by bob reaches a timeout.
+
+Is this a normal behavior from OpenIMSCore? Shouldn't the P-CSCF save the top-most Via sent in the last request sent by Alice?
+I was not able to explicitly find the description for this procedures neither in RFC3261 nor in 3GPP 24.229, maybe I'm not looking in the right place...
+
+What is your understanding in this matter?
+Many thanks,
+Miguel
+
+
+-----Mensagem original-----
+De: Franz Edler [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">franz.edler at inode.at</A>]
+Enviada: quarta-feira, 10 de Dezembro de 2008 5:24
+Para: Jos&#233; Miguel Freitas; <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Assunto: RE: [imscommunicator-users] Changing transport to TCP does not work
+
+Hi Miguel,
+
+&gt;<i> I've tested with the latest's releases of ims-communicator (r97) and
+</I>&gt;<i> OpenIMSCore (r608), and the IMS-Communicator successfully registers
+</I>&gt;<i> using UDP or TCP.
+</I>&gt;<i> For TCP, please change the following properties in ims-communicator.xml:
+</I>&gt;<i> - &lt;net.java.sip.communicator.sip.REGISTRAR_TRANSPORT value=&quot;TCP&quot;&gt;
+</I>&gt;<i> - &lt;net.java.sip.communicator.sip.TRANSPORT value=&quot;TCP&quot;&gt;
+</I>&gt;<i> - &lt;javax.sip.OUTBOUND_PROXY value=&quot;host:port/tcp&quot;&gt;
+</I>&gt;<i>
+</I>&gt;<i> Let me know if you keep having this issue.
+</I>
+I have tested the new version and detected an issue when alice (TCP) calls bob (udp). Release of the call does not work (timeout).
+See attached tracefile.
+
+Regards
+Franz
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000142.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+	<LI>Next message: <A HREF="000144.html">[imscommunicator-users] Changing transport to TCP does not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

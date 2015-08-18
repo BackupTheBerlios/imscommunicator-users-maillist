@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] a problem when run the IMS-communicator in	eclipse.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2010-June/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20a%20problem%20when%20run%20the%20IMS-communicator%20in%0A%09eclipse.&In-Reply-To=%3CAANLkTikRNeZAOWIwio0A8fiRPP6qhqbSrGUO0ArDwGYc%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000156.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] a problem when run the IMS-communicator in	eclipse.</H1>
+    <B>&#26753;&#27888;&#20262;</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20a%20problem%20when%20run%20the%20IMS-communicator%20in%0A%09eclipse.&In-Reply-To=%3CAANLkTikRNeZAOWIwio0A8fiRPP6qhqbSrGUO0ArDwGYc%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] a problem when run the IMS-communicator in	eclipse.">liangtailun at gmail.com
+       </A><BR>
+    <I>Wed Jun 16 17:25:31 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000156.html">[imscommunicator-users] Hi,	please skip my previous question.I had it solved.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,everyone.I was happy to find IMS-communicator.After I read the introduce
+and run the binary releases. I was very interesting in IMS-communicator.So I
+use  svn to download [docs],[lib],[releases] and [trunk].
+
+I use eclipse import the project in trunk. and use the and run the
+build.xml(target rebuild) in eclipse.And the console output that:
+
+Buildfile:
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\build.xml
+clean:
+init:
+    [mkdir] Created dir:
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\classes
+compile:
+    [javac] Compiling 143 source files to
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\classes
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\sip\simple\XmlPresenceInformationFactory.java:80:
+&#23545; Console &#30340;&#24341;&#29992;&#19981;&#26126;&#30830;&#65292;net.java.sip.communicator.common &#20013;&#30340; &#31867;
+net.java.sip.communicator.common.Console &#21644; java.io &#20013;&#30340; &#31867; java.io.Console &#37117;&#21305;&#37197;
+    [javac]     private static final Console console =
+Console.getConsole(XmlPresenceInformationFactory.class);
+    [javac]                          ^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\sip\simple\storage\ContactListSerializer.java:82:
+&#23545; Console &#30340;&#24341;&#29992;&#19981;&#26126;&#30830;&#65292;net.java.sip.communicator.common &#20013;&#30340; &#31867;
+net.java.sip.communicator.common.Console &#21644; java.io &#20013;&#30340; &#31867; java.io.Console &#37117;&#21305;&#37197;
+    [javac]     private static final Console console =
+Console.getConsole(ContactListSerializer.class);
+    [javac]                          ^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\gui\GuiManager.java:238:
+&#35686;&#21578;&#65306;[deprecation] java.io.File &#20013;&#30340; toURL() &#24050;&#36807;&#26102;
+    [javac]           new String(&quot;resource&quot; + File.separator +
+iconFileName)).toURL()).getImage());
+    [javac]
+^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\gui\GuiManager.java:260:
+&#35686;&#21578;&#65306;[deprecation] java.io.File &#20013;&#30340; toURL() &#24050;&#36807;&#26102;
+    [javac]           new String(&quot;resource&quot; + File.separator +
+logoFileName)).toURL()));
+    [javac]
+^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\gui\imp\ContactListFrame.java:189:
+&#35686;&#21578;&#65306;[deprecation] java.io.File &#20013;&#30340; toURL() &#24050;&#36807;&#26102;
+    [javac]            new File( new String(&quot;resource&quot; + File.separator +
+iconFileName)).toURL())
+    [javac]
+                                                                   ^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\gui\imp\PresenceStatusControllerUIModel.java:300:
+&#35686;&#21578;&#65306;[deprecation] java.io.File &#20013;&#30340; toURL() &#24050;&#36807;&#26102;
+    [javac]           new String(&quot;resource&quot; + File.separator +
+iconFileName)).toURL()));
+    [javac]
+^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\plugin\setup\WizardDialog.java:133:
+&#35686;&#21578;&#65306;[deprecation] java.io.File &#20013;&#30340; toURL() &#24050;&#36807;&#26102;
+    [javac]               new String(&quot;resource&quot; + File.separator +
+logoFileName)).toURL()));
+    [javac]
+                                                        ^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\sip\simple\XmlPresenceInformationFactory.java:80:
+&#23545; Console &#30340;&#24341;&#29992;&#19981;&#26126;&#30830;&#65292;net.java.sip.communicator.common &#20013;&#30340; &#31867;
+net.java.sip.communicator.common.Console &#21644; java.io &#20013;&#30340; &#31867; java.io.Console &#37117;&#21305;&#37197;
+    [javac]     private static final Console console =
+Console.getConsole(XmlPresenceInformationFactory.class);
+    [javac]                                            ^
+    [javac]
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\src\net\java\sip\communicator\sip\simple\storage\ContactListSerializer.java:82:
+&#23545; Console &#30340;&#24341;&#29992;&#19981;&#26126;&#30830;&#65292;net.java.sip.communicator.common &#20013;&#30340; &#31867;
+net.java.sip.communicator.common.Console &#21644; java.io &#20013;&#30340; &#31867; java.io.Console &#37117;&#21305;&#37197;
+    [javac]     private static final Console console =
+Console.getConsole(ContactListSerializer.class);
+    [javac]                                            ^
+    [javac] &#27880;&#24847;&#65306;&#26576;&#20123;&#36755;&#20837;&#25991;&#20214;&#20351;&#29992;&#20102;&#26410;&#32463;&#26816;&#26597;&#25110;&#19981;&#23433;&#20840;&#30340;&#25805;&#20316;&#12290;
+    [javac] &#27880;&#24847;&#65306;&#35201;&#20102;&#35299;&#35814;&#32454;&#20449;&#24687;&#65292;&#35831;&#20351;&#29992; -Xlint:unchecked &#37325;&#26032;&#32534;&#35793;&#12290;
+    [javac] 4 &#38169;&#35823;
+    [javac] 5 &#35686;&#21578;
+BUILD FAILED
+F:\IMS-all\IMS-Communicator\ims-communicator-svn-src\trunk\build.xml:274:
+Compile failed; see the compiler error output for details.
+Total time: 2 seconds
+
+that may include some chinese.but I think you can read it.if need I can do
+some translate.
+is there has some guid that I can follow to import and run IMS-communicator
+successful in eclipse?
+
+thanks for your help.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20100616/be1a1e7b/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20100616/be1a1e7b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000156.html">[imscommunicator-users] Hi,	please skip my previous question.I had it solved.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

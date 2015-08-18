@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] I have some problem in compile!!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20I%20have%20some%20problem%20in%20compile%21%21&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C03497761%40INOAVREX05.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000088.html">
+   <LINK REL="Next"  HREF="000087.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] I have some problem in compile!!</H1>
+    <B>Jos&#233; Miguel Freitas (IT)</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20I%20have%20some%20problem%20in%20compile%21%21&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C03497761%40INOAVREX05.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] I have some problem in compile!!">it-j-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Tue Mar 18 11:18:54 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000088.html">[imscommunicator-users] I have some problem in compile!!
+</A></li>
+        <LI>Next message: <A HREF="000087.html">[imscommunicator-users] I have some problem in compile!!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Vin,
+your problem is due to the fact that you are using JDK 6, and ims-communicator is suppose to run under JDK 5.
+But if you inspect the build.xml, you can see that in the line 274 you have &quot;&lt;javac (...)  target=&quot;1.5&quot; &lt;/javac&gt;&quot;
+Try to change it for &quot;target=1.6&quot;.
+Also, under Eclipse, don't forget to change the project environment to Java 6.0, if not already done (Project &gt; Properties &gt; Java Build Path).
+Let me know if you manage to compile it.
+ 
+Best regards,
+Jos&#233; Miguel Freitas
+_______________________________________
+SRM Department
+Portugal Telecom Inova&#231;&#227;o, SA
+<A HREF="http://www.ptinovacao.pt">http://www.ptinovacao.pt</A> &lt;<A HREF="http://www.ptinovacao.pt/">http://www.ptinovacao.pt/</A>&gt; 
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A> on behalf of <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">johnsonlovevin at yahoo.com.tw</A>
+Sent: Mon 17/03/2008 11:45
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Subject: [imscommunicator-users] I have some problem in compile!!
+
+
+Dear:
+Hi ,I download source code of ims-communicator(use SVN in Eclipse).
+But it has error, I don't know where's wrong??
+Then I use ant compile(use &quot;ant&quot; command), it always show &quot;C:\Documents and Settings\VinBaby2\workspace\ims-communicator\build.xml:274: Compile failed; see the compiler error output for details&quot;
+I have to try download source code of sip-communicator(use SVN in Eclipse).
+It is working(can use ant compile , can use &quot;ant&quot; and &quot;rebuild&quot; command).
+I do the same step both ims-communicator and sip-communicator.
+Can any body help me ? Do I have any mistake? Thanks
+
+regards,
+Vin
+--------------------------------------My version----------------------------------------------
+Eclipse 3.3.1.1
+Ant compile:1.7.0
+JMF: install jmf-2_1_1e-windows-i586.exe
+JDK6
+---------------------------Environmental parameter------------------------------------------------
+CLASSPATH:
+C:\Program Files\Java\jdk1.6.0_03\lib\tools.jar;C:\Program Files\Java\jdk1.6.0_03\lib\dt.jar;C:\Documents and Settings\VinBaby2\workspace\ims-communicator\lib\jmf-win\jmf.jar;C:\Documents and Settings\VinBaby2\workspace\ims-communicator\lib\jmf-win\sound.jar
+Path:
+%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\Inventec\Dreye\DreyeSA\DreyeTTs\eTTS\;C:\Program Files\Java\jdk1.6.0_03\bin;D:\JAVA\smoething\apache-ant-1.7.0\bin;C:\j2sdk1.4.2_16\bin
+JAVA_HOME:
+C:\Program Files\Java\jdk1.6.0_03
+	
+
+
+___________________________________________________________________
+?????????Yahoo!??????2.0????,???????! - ???? &lt;<A HREF="http://tw.rd.yahoo.com/referurl/mail/mail20/tag_hot0103/*http://tw.mg0.mail.yahoo.com/dc/landing">http://tw.rd.yahoo.com/referurl/mail/mail20/tag_hot0103/*http://tw.mg0.mail.yahoo.com/dc/landing</A>&gt; !
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000088.html">[imscommunicator-users] I have some problem in compile!!
+</A></li>
+	<LI>Next message: <A HREF="000087.html">[imscommunicator-users] I have some problem in compile!!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

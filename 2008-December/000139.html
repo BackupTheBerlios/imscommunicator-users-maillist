@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Problem in creating IPsec connection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Problem%20in%20creating%20IPsec%20connection&In-Reply-To=%3C14980746.112351228454376783.JavaMail.root%40mail01%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000140.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Problem in creating IPsec connection</H1>
+    <B>gagandeep bajaj</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Problem%20in%20creating%20IPsec%20connection&In-Reply-To=%3C14980746.112351228454376783.JavaMail.root%40mail01%3E"
+       TITLE="[imscommunicator-users] Problem in creating IPsec connection">gagandeep.bajaj at rancoretech.com
+       </A><BR>
+    <I>Fri Dec  5 06:19:36 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000137.html">[imscommunicator-users] [Imscommunicator-dev] Cannot register	with Open IMS Core
+</A></li>
+        <LI>Next message: <A HREF="000140.html">[imscommunicator-users] Problem in creating IPsec connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Hello 
+
+
+
+I want to make an IPsec connection with PCSCF using OpenIMS. I am able to authorize the IMS communicator with SCSCF, but it fails to create an IPsec connection, as it cannot establish SAs. 
+
+
+
+1) The first problem I have been able to figure out is that it finds the SPI given in &quot;Security-Server&quot; header received in 401, out of range. (This is a bug in IMS communicator, as spi-c and spi-s are unsigned 32, but IMS communicator uses parseInt, which is signed 32, so it gives out of range). 
+
+2) When I hard code the spi-c and spi-s in the Security-Server header, the second problem is that it cannot find IK and CK, and gives null pointer exception and doesnot form SAs. 
+
+
+
+I am attaching the logs and also my XML file. 
+
+
+
+Could anyone help ?? 
+
+
+
+
+
+Thanks 
+
+Gagandeep Bajaj 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ims-communicator.app.log
+Type: application/octet-stream
+Size: 83412 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.obj">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ims-communicator.stack.log
+Type: application/octet-stream
+Size: 6513 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment-0001.obj">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment-0001.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ims-communicator.xml
+Type: text/xml
+Size: 7524 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.xml">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081205/85c5d344/attachment.xml</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000137.html">[imscommunicator-users] [Imscommunicator-dev] Cannot register	with Open IMS Core
+</A></li>
+	<LI>Next message: <A HREF="000140.html">[imscommunicator-users] Problem in creating IPsec connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

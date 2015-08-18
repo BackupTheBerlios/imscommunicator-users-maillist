@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] PREFERRED_NETWORK_ADDRESS and IP_ADDRESS	overwritten
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20PREFERRED_NETWORK_ADDRESS%20and%20IP_ADDRESS%0A%09overwritten&In-Reply-To=%3C4A0938DE.90606%40alcatel-lucent.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] PREFERRED_NETWORK_ADDRESS and IP_ADDRESS	overwritten</H1>
+    <B>Herve Pannetier</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20PREFERRED_NETWORK_ADDRESS%20and%20IP_ADDRESS%0A%09overwritten&In-Reply-To=%3C4A0938DE.90606%40alcatel-lucent.fr%3E"
+       TITLE="[imscommunicator-users] PREFERRED_NETWORK_ADDRESS and IP_ADDRESS	overwritten">herve.pannetier at alcatel-lucent.fr
+       </A><BR>
+    <I>Tue May 12 10:52:46 CEST 2009</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+I configured IMS-Communicator on several unix box which have at least 2 
+ethernets interfaces.
+Eth0 are connected to the management LAN of the lab while eth1 are 
+connected to the IMS test bed.
+I specified in ims-communicator.xml that my preferred network is managed 
+by eth1 and that the SIP Stack should use it.
+But despite this config, the SIP messages are always sent with the IP 
+source address of eth0 and SIP headers are set with eth0 address instead 
+of eth1.
+
+Looking at the logs after running a register:
+
+455 [main] DEBUG common.PropertiesDepot  - 
+getProperty[java.net.preferIPv4Stack=true]
+457 [main] DEBUG common.NetworkAddressManager  - Found public address 
+/139.54.128.9
+457 [main] DEBUG common.NetworkAddressManager  - Found Linklocal ipv4 
+address /192.168.40.110
+457 [main] DEBUG common.NetworkAddressManager  - Found Linklocal ipv4 
+address /192.168.30.110
+457 [main] DEBUG common.NetworkAddressManager  - Found Linklocal ipv4 
+address /192.168.0.110
+457 [main] DEBUG common.NetworkAddressManager  - Returning public address
+457 [main] TRACE common.NetworkAddressManager  - [exit] getLocalHost
+
+468 [main] DEBUG common.PropertiesDepot  - 
+getProperty[javax.sip.IP_ADDRESS=139.54.128.9]
+
+502 [main] DEBUG communicator.SipCommunicator  - IP Address set to 
+139.54.128.9
+502 [main] DEBUG common.PropertiesDepot  - 
+getProperty[javax.sip.IP_ADDRESS=139.54.128.9]
+
+
+Whatever the initial configuration of the ims-communicator.xml :
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">root at newyork</A> ~/ims-communicator]# grep 192.1 *xml
+ims-communicator.xml:            &lt;IP_ADDRESS value=&quot;192.168.0.110&quot;/&gt;
+ims-communicator.xml:            &lt;PUBLIC_ADDRESS 
+value=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 192.168.0.110</A>&quot;/&gt;
+ims-communicator.xml:            &lt;PREFERRED_NETWORK_ADDRESS 
+value=&quot;192.168.0.110&quot;/&gt;
+ims-communicator.xml:        &lt;IP_ADDRESS value=&quot;192.168.0.110&quot;/&gt;
+ims-communicator.xml:        &lt;OUTBOUND_PROXY value=&quot;192.168.0.10:4060/udp&quot;/&gt;
+[<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">root at newyork</A> ~/ims-communicator]# grep PREFERRED_NET *xml*
+ims-communicator.xml:            &lt;PREFERRED_NETWORK_INTERFACE value=&quot;eth1&quot;/&gt;
+ims-communicator.xml:            &lt;PREFERRED_NETWORK_ADDRESS 
+value=&quot;192.168.0.110&quot;/&gt;
+
+
+The initial configuration  is ignored and has been overwritten during 
+the register :
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">root at newyork</A> ~/ims-communicator]# grep 139 *xml
+ims-communicator.xml:            &lt;PREFERRED_NETWORK_ADDRESS 
+value=&quot;139.54.128.9&quot;/&gt;
+ims-communicator.xml:        &lt;IP_ADDRESS value=&quot;139.54.128.9&quot;/&gt;
+
+
+The only workaround I found is to set down eth0 but that's bad because 
+in that case I lose the remote access to my linux box.
+Is there another possible workaround?
+
+Best regards
+
+Herv&#233; Pannetier
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

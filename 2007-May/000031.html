@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Too slow connection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Too%20slow%20connection&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC086%40INOAVREX05.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   <LINK REL="Next"  HREF="000034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Too slow connection</H1>
+    <B>Jos&#233; Miguel Freitas (IT)</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Too%20slow%20connection&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC086%40INOAVREX05.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] Too slow connection">it-j-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Thu May  3 18:38:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[imscommunicator-users] Too slow connection
+</A></li>
+        <LI>Next message: <A HREF="000034.html">[imscommunicator-users] Too slow connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Miguel,
+ 
+&gt;<i> We had not changed the local IP address in all places of the xml file
+</I>Yes, that's why you'd better execute the Wizard at least in the first time you run the client.
+Although the &lt;javax.sip.P_ADDRESS&gt; property is automatically updated, the &lt;common.PREFERRED_NETWORK_INTERFACE&gt; and &lt;common.PREFERRED_NETWORK_ADDRESS&gt; relay on the Wizard to be correctly updated...
+ 
+&gt;<i> We relaid on the Wizard to make the change for us, but it wouldn't make it right.
+</I>Probably the most reliable way to do this is to schedule the execution of the Wizard in the next client startup by placing &lt;net.java.sip.communicator.FIRST_LAUNCH value=&quot;true&quot;&gt; and restarting the IMS-Communicator.
+ 
+&gt;<i> &lt;sip&gt;&lt;IP_ADDRESS value=&quot;XXX&quot;/&gt; was correct, but the one under
+</I>&gt;<i> &lt;net&gt;&lt;java&gt;&lt;sip&gt;&lt;communicator&gt;&lt;media&gt;&lt;IP_ADDRESS value=&quot;XXX&quot;/&gt; was not
+</I>Usually the property &lt;net.java.sip.communicator.media.IP_ADDRESS&gt; is left blank and is not issued by the Wizard because it's where the user can indicate with who the media session should be established (which by default is the clients' IP address).
+Can't you get your scenario working when not filling the &lt;net.java.sip.communicator.media.IP_ADDRESS&gt; with the clients' IP address? Try to left it blank (value=&quot;&quot;).
+ 
+ 
+Thanks very much for the tweak to speed up media establishment! We are aware that sometimes the media session takes up some time to start transmitting and, like you realized, most of the times it's due to network configurations. I will add your contribution to the user manual. Thanks once again.
+ 
+Cheers,
+Jos&#233; Miguel Freitas
+_______________________________________
+SRM Department
+Portugal Telecom Inova&#231;&#227;o, SA
+<A HREF="http://www.ptinovacao.pt">http://www.ptinovacao.pt</A> &lt;<A HREF="http://www.ptinovacao.pt/">http://www.ptinovacao.pt/</A>&gt; 
+ 
+
+________________________________
+
+De: Miguel.Gomez [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">Miguel.Gomez at hft-leipzig.de</A>]
+Enviada: qui 03-05-2007 16:27
+Para: Jos&#233; Miguel Freitas (IT)
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Assunto: Too slow connection
+
+
+
+Hi.
+
+Quoting &quot;Jos&#233; Miguel Freitas (IT)&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">it-j-freitas at ptinovacao.pt</A>&gt;:
+
+&gt;<i> Hi Miguel,
+</I>&gt;<i> Can you send a network trace, or the log files of each
+</I>&gt;<i> IMS-Communicator UA? They are located in the ims-communicator/log
+</I>&gt;<i> folder.
+</I>&gt;<i> Both configuration files (ims-communicator.xml) could also be useful...
+</I>&gt;<i>
+</I>&gt;<i> Jos&#233; Miguel Freitas
+</I>
+We had not changed the local IP address in all places of the xml file
+(the &lt;javax&gt;
+&lt;sip&gt;&lt;IP_ADDRESS value=&quot;XXX&quot;/&gt; was correct, but the one under
+&lt;net&gt;&lt;java&gt;&lt;sip&gt;&lt;communicator&gt;&lt;media&gt;&lt;IP_ADDRESS value=&quot;XXX&quot;/&gt; was not). We
+relaid on the Wizard to make the change for us, but it wouldn't make it right.
+May be this could be seen as a bug?
+
+
+
+Once that was solved, we ran into another problem. We could connect and speak
+with each other, but there was long gap between clicking Answer and being able
+to speak. After ACK took so much as 15 seconds (messages 33 upto 76) until RTP
+flown. I attach capture, and log files (PCSCF is also DNS server there).
+
+The problem was the default kernel route, which was erroneously looked for:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">root at ims-pc1</A>:~# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.12.107.0     *               255.255.255.0   U     0      0        0 eth0
+default         10.12.107.254   0.0.0.0         UG    0      0        0 eth0
+
+Just deleting it made the trick:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">root at ims-pc1</A>:~# route del default gw 10.12.107.254
+
+Now goes everything smoothly. ;)
+I think that this tip could be added to the faqs or manual.
+
+Miguel
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[imscommunicator-users] Too slow connection
+</A></li>
+	<LI>Next message: <A HREF="000034.html">[imscommunicator-users] Too slow connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

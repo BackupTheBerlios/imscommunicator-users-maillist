@@ -1,0 +1,646 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Registration not successfull-used AKAv1-MD5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20not%20successfull-used%20AKAv1-MD5&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC071%40INOAVREX05.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Registration not successfull-used AKAv1-MD5</H1>
+    <B>Jos&#233; Miguel Freitas (IT)</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20not%20successfull-used%20AKAv1-MD5&In-Reply-To=%3C0AE2132CE51D1943A20F450AA7258E5C024CC071%40INOAVREX05.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] Registration not successfull-used AKAv1-MD5">it-j-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Tue Apr 24 11:34:37 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[imscommunicator-users] Presence Support in IMS Communicator
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[imscommunicator-users] Problems starting IMS communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Naga.
+You can also use the lists to provide your input: <A HREF="https://developer.berlios.de/mail/?group_id=7991">https://developer.berlios.de/mail/?group_id=7991</A>
+Sorry about the delay, the berliOS was down since last week...
+About that problem, of the user being always challenged when trying to register, curiously it happened to be yesterday! 
+Apparently it was due to something that was breaking the ims-communicator.xml file (after doing a &quot;replace all&quot; with notepad). So I suggest that you replace it with the one from SVN.
+ 
+Best regards,
+Miguel Freitas
+ 
+
+
+________________________________
+
+De: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A> em nome de Kedar P Bhise
+Enviada: ter 24-04-2007 6:56
+Para: IMS Comm Users
+Assunto: [imscommunicator-users] Presence Support in IMS Communicator
+
+
+	Hello all,
+	We are using IMS-communicator to test registration with open-ims. We are using Digest-AKAv1-MD5 as security algorithm.
+	
+	Details:
+	IMS communicator sends the REGISTER with nonce and scheme=AKA-MD5 to open-IMS.
+	MAR and MAA are exchaged between SCSCF and HSS.SCSCF sends back 401 response with the challenge.
+	IMS communicator promts for the password and now RE-REGISTER is send with response in the AUTHORISATION header.But the authentication is failing and 403 response is given by SCSCF.
+	
+	We have attached the configuration of IMS-communicator and the logs for the messages. 
+	
+	IMS-Communicator.xml:
+	
+	&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+	&lt;configuration&gt;
+	&lt;log4j&gt;
+	&lt;rootLogger value=&quot;net.java.sip.communicator.common.Console.TraceLevel, RFLogger&quot;/&gt;
+	&lt;appender&gt;
+	&lt;RFLogger value=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
+	&lt;layout value=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+	&lt;ConversionPattern value=&quot;%r [%t] %p %c{2} %x - %m%n&quot;/&gt;
+	&lt;/layout&gt;
+	&lt;MaxBackupIndex value=&quot;1&quot;/&gt;
+	&lt;File value=&quot;log/ims-communicator.app.log&quot;/&gt;
+	&lt;MaxFileSize value=&quot;256KB&quot;/&gt;
+	&lt;/RFLogger&gt;
+	&lt;/appender&gt;
+	&lt;/log4j&gt;
+	&lt;net&gt;
+	&lt;java&gt;
+	&lt;sip&gt;
+	&lt;communicator&gt;
+	&lt;FIRST_LAUNCH value=&quot;false&quot;/&gt;
+	&lt;ENABLE_SIMPLE value=&quot;false&quot;/&gt;
+	&lt;media&gt;
+	&lt;!--- &lt;PREFERRED_AUDIO_ENCODING system=&quot;false&quot; value=&quot;&quot;/&gt; --&gt;
+	&lt;PREFERRED_AUDIO_ENCODING value=&quot;0&quot;/&gt;
+	&lt;PREFERRED_VIDEO_ENCODING value=&quot;34&quot;/&gt;
+	&lt;NO_AUDIO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+	&lt;NO_VIDEO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+	&lt;MEDIA_SOURCE value=&quot;&quot;/&gt;
+	&lt;MEDIA_BUFFER_LENGTH value=&quot;100&quot;/&gt;
+	&lt;IP_ADDRESS value=&quot;&quot;/&gt;
+	&lt;AUDIO_PORT value=&quot;&quot;/&gt;
+	&lt;VIDEO_PORT value=&quot;&quot;/&gt;
+	&lt;/media&gt;
+	&lt;sip&gt;
+	&lt;PUBLIC_ADDRESS value=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;/&gt;
+	&lt;TRANSPORT value=&quot;&quot;/&gt;
+	&lt;REGISTRAR_ADDRESS value=&quot;open-ims.test&quot;/&gt;
+	&lt;USER_NAME value=&quot;&quot;/&gt;
+	&lt;STACK_PATH value=&quot;gov.nist&quot;/&gt;
+	&lt;PREFERRED_LOCAL_PORT value=&quot;8888&quot;/&gt;
+	&lt;DISPLAY_NAME value=&quot;&quot;/&gt;
+	&lt;REGISTRAR_TRANSPORT value=&quot;UDP&quot;/&gt;
+	&lt;REGISTRATIONS_EXPIRATION value=&quot;3600&quot;/&gt;
+	&lt;REGISTRAR_PORT value=&quot;5060&quot;/&gt;
+	&lt;FAIL_CALLS_ON_DEST_USER_MISMATCH value=&quot;false&quot;/&gt;
+	&lt;DEFAULT_DOMAIN_NAME value=&quot;open-ims.test&quot;/&gt; 
+	&lt;DEFAULT_AUTHENTICATION_REALM value=&quot;open-ims.test&quot;/&gt; 
+	&lt;WAIT_UNREGISTGRATION_FOR value=&quot;1100&quot;/&gt;
+	&lt;SAME_USER_EVERYWHERE value=&quot;true&quot;/&gt;
+	
+	&lt;!-- IMS Client --&gt;
+	
+	&lt;ims&gt;
+	&lt;IMS_CLIENT value=&quot;true&quot;/&gt;
+	&lt;PRIVATE_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;/&gt;
+	&lt;PREFERRED_ADDRESS value=&quot;&quot;/&gt;
+	&lt;PREFERRED_DISPLAY_NAME value=&quot;&quot;/&gt;
+	&lt;PRIVACY value=&quot;none&quot;/&gt;
+	&lt;!-- operator ID : 16 bytes (32 hex char) --&gt;
+	&lt;OPERATOR_ID value=&quot;00000000000000000000000000000000&quot;/&gt;
+	&lt;!-- if SECURITY_AGREEMENT value is empty, Security-Client header is not sent --&gt;
+	&lt;SECURITY_AGREEMENT value=&quot;ipsec-3gpp&quot;/&gt;
+	&lt;SECURITY_ALGORITHM value=&quot;hmac-sha-1-96&quot;/&gt;
+	&lt;SECURITY_ENCRYPT_ALG value=&quot;Digest-AKAv1-MD5&quot;/&gt;
+	&lt;SECURITY_SPI_C value=&quot;10000&quot;/&gt;
+	&lt;SECURITY_SPI_S value=&quot;10002&quot;/&gt;
+	&lt;SECURITY_PORT_C value=&quot;5062&quot;/&gt;
+	&lt;SECURITY_PORT_S value=&quot;5063&quot;/&gt;
+	&lt;ACCEPT_REFER_WITHOUT_SESSION_ON value=&quot;true&quot;/&gt;
+	&lt;REFER_TIMEOUT value=&quot;60000&quot;/&gt;
+	&lt;REG_EVENT_SUBSCRIPTION_TIMEOUT value=&quot;600000&quot;/&gt;
+	&lt;ACCESS_TYPE value=&quot;IEEE-802.11&quot;/&gt;
+	&lt;DEFAULT_LOCAL_PRECONDITION value=&quot;sendrecv&quot;/&gt;
+	&lt;VIDEO_BANDWIDTH value=&quot;75&quot;/&gt;
+	&lt;AUDIO_BANDWIDTH value=&quot;25&quot;/&gt;
+	
+	&lt;!-- testing feature --&gt;
+	&lt;PCSCF_DYNAMIC_DISCOVERY value=&quot;true&quot;/&gt;
+	&lt;/ims&gt;
+	
+	&lt;!-- end of IMS Client --&gt;
+	
+	&lt;simple&gt;
+	&lt;CONTACT_LIST_FILE value=&quot;contact-list.xml&quot;/&gt;
+	&lt;SUBSCRIPTION_EXP_TIME value=&quot;150&quot;/&gt;
+	&lt;MIN_EXP_TIME value=&quot;60&quot;/&gt;
+	&lt;LAST_SELECTED_OPEN_STATUS value=&quot;busy&quot;/&gt;
+	&lt;/simple&gt;
+	&lt;/sip&gt;
+	
+	&lt;gui&gt;
+	&lt;AUTH_WIN_TITLE value=&quot;SIP Authentication!&quot;/&gt;
+	&lt;AUTHENTICATION_PROMPT value=&quot;Please enter login name and password for the specified realm:&quot;/&gt;
+	&lt;USER_NAME_LABEL value=&quot;UserName:&quot;/&gt;
+	&lt;USER_NAME_EXAMPLE value=&quot;Example: testes1&quot;/&gt;
+	&lt;PASSWORD_LABEL value=&quot;Password:&quot;/&gt;
+	&lt;!--GUI_MODE value=&quot;PhoneUiMode&quot;/--&gt;
+	&lt;PHONE_GUI_MODE value=&quot;true&quot;/&gt;
+	&lt;IM_GUI_MODE value=&quot;false&quot;/&gt;
+	&lt;imp&gt;
+	&lt;CONTACT_LIST_X value=&quot;535&quot;/&gt;
+	&lt;CONTACT_LIST_Y value=&quot;88&quot;/&gt;
+	&lt;CONTACT_LIST_WIDTH value=&quot;157&quot;/&gt;
+	&lt;CONTACT_LIST_HEIGHT value=&quot;434&quot;/&gt;
+	&lt;/imp&gt;
+	&lt;logo&gt;
+	&lt;MAIN_LOGO value=&quot;default-logo.jpg&quot;/&gt;
+	&lt;PHONE_GUI_ICON value=&quot;default-icon.jpg&quot;/&gt;
+	&lt;IM_GUI_ICON value=&quot;presence-icon-16x16.jpg&quot;/&gt;
+	&lt;/logo&gt;
+	&lt;/gui&gt;
+	
+	&lt;common&gt;
+	&lt;PREFERRED_NETWORK_INTERFACE value=&quot;l0&quot;/&gt;
+	&lt;PREFERRED_NETWORK_ADDRESS value=&quot;127.0.0.1&quot;/&gt;
+	&lt;/common&gt;
+	
+	
+	&lt;!--
+	net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false
+	net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=<A HREF="http://my.sipphone.com">http://my.sipphone.com</A> &lt;<A HREF="http://my.sipphone.com/">http://my.sipphone.com/</A>&gt; 
+	--&gt;
+	&lt;sipphone&gt;
+	&lt;IS_RUNNING_SIPPHONE value=&quot;false&quot;/&gt;
+	&lt;MY_SIPPHONE_URL value=&quot;<A HREF="http://my.sipphone.com">http://my.sipphone.com</A>&quot;/&gt; &lt;<A HREF="http://my.sipphone.com%22/%3E">http://my.sipphone.com%22/%3E</A>&gt; ;
+	&lt;USER_NAME_EXAMPLE value=&quot;testes1&quot;/&gt;
+	&lt;/sipphone&gt;
+	&lt;!--
+	net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!
+	net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name and password for the specified realm:
+	net.java.sip.communicator.gui.USER_NAME_LABEL=SIPphone Number:
+	net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=Example: 1-747-555-1212
+	net.java.sip.communicator.gui.PASSWORD_LABEL=Password:
+	--&gt;
+	
+	&lt;!--
+	net.java.sip.communicator.STUN_SERVER_ADDRESS=stun01.sipphone.com
+	net.java.sip.communicator.STUN_SERVER_PORT=3478
+	net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212
+	--&gt;
+	&lt;!--STUN_SERVER_ADDRESS value=&quot;stun01.sipphone.com&quot;/--&gt;
+	&lt;!--STUN_SERVER_PORT value=&quot;3478&quot;/--&gt;
+	&lt;VOICE_MAIL_ADDRESS value=&quot;17475551212&quot;/&gt;
+	&lt;/communicator&gt;
+	&lt;/sip&gt;
+	&lt;/java&gt;
+	&lt;/net&gt;
+	&lt;gov&gt;
+	&lt;nist&gt;
+	&lt;javax&gt;
+	&lt;sip&gt;
+	&lt;SERVER_LOG value=&quot;log/ims-communicator.stack.log&quot;/&gt;
+	&lt;TRACE_LEVEL value=&quot;16&quot;/&gt;
+	&lt;/sip&gt;
+	&lt;/javax&gt;
+	&lt;/nist&gt;
+	&lt;/gov&gt;
+	&lt;javax&gt;
+	&lt;sip&gt;
+	&lt;IP_ADDRESS value=&quot;10.20.4.242&quot;/&gt;
+	&lt;STACK_NAME value=&quot;sip-communicator&quot;/&gt;
+	&lt;ROUTER_PATH value=&quot;net.java.sip.communicator.sip.SipCommRouter&quot;/&gt;
+	&lt;!-- important: sip outbound proxy format is &lt;address&gt;:&lt;port&gt;/&lt;transport&gt; --&gt;
+	&lt;OUTBOUND_PROXY value=&quot;pcscf.open-ims.test:4060/UDP&quot;/&gt;
+	&lt;RETRANSMISSON_FILTER value=&quot;&quot;/&gt;
+	&lt;EXTENSION_METHODS value=&quot;&quot;/&gt;
+	&lt;RETRANSMISSION_FILTER value=&quot;true&quot;/&gt;
+	&lt;/sip&gt;
+	&lt;/javax&gt;
+	&lt;java&gt;
+	&lt;net&gt;
+	&lt;preferIPv4Stack system=&quot;true&quot; value=&quot;true&quot;/&gt;
+	&lt;preferIPv6Addresses system=&quot;false&quot; value=&quot;false&quot;/&gt;
+	&lt;/net&gt;
+	&lt;/java&gt;
+	&lt;/configuration&gt;
+	
+	First register message:
+	
+	
+	Session Initiation Protocol
+	Request-Line: REGISTER sip:open-ims.test SIP/2.0
+	Method: REGISTER
+	[Resent Packet: False]
+	Message Header
+	Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">c17caea528aae903136341045e454540 at 10.20.4.242</A>
+	CSeq: 1 REGISTER
+	Sequence Number: 1
+	Method: REGISTER
+	From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=9956845
+	SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 9956845
+	To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;
+	SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	Via: SIP/2.0/UDP 10.20.4.242:8888;branch=z9hG4bK659a7b1f86e3a365073c93ce510f646a
+	Transport: UDP
+	Sent-by Address: 10.20.4.242
+	Sent-by port: 8888
+	Branch: z9hG4bK659a7b1f86e3a365073c93ce510f646a
+	Max-Forwards: 70
+	Expires: 3600
+	P-Access-Network-Info: IEEE-802.11
+	Privacy: none
+	Security-Client: ipsec-3gpp; alg=hmac-sha-1-96;ealg=Digest-AKAv1-MD5;spi-c=10000;spi-s=10002;port-c=5062;port-s=5063
+	Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;&quot;,uri=&quot;open-ims.test&quot;,response=&quot;&quot;
+	Authentication Scheme: Digest
+	Username: &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;
+	Realm: &quot;open-ims.test&quot;
+	Nonce Value: &quot;&quot;
+	Authentication URI: &quot;open-ims.test&quot;
+	Digest Authentication Response: &quot;&quot;
+	Supported: path
+	Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	Contact Binding: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	URI: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	SIP contact address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888
+	Content-Length: 0
+	
+	
+	Challenge from IMS: 
+	
+	Session Initiation Protocol
+	Status-Line: SIP/2.0 401 Unauthorized - Challenging the UE
+	Status-Code: 401
+	[Resent Packet: False]
+	Message Header
+	Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">c17caea528aae903136341045e454540 at 10.20.4.242</A>
+	CSeq: 1 REGISTER
+	Sequence Number: 1
+	Method: REGISTER
+	From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=9956845
+	SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 9956845
+	To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=593f71f0682f6ebdf2b85804737f7f87-b3e3
+	SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 593f71f0682f6ebdf2b85804737f7f87-b3e3
+	Via: SIP/2.0/UDP 10.20.4.242:8888;rport=8888;branch=z9hG4bK659a7b1f86e3a365073c93ce510f646a
+	Transport: UDP
+	Sent-by Address: 10.20.4.242
+	Sent-by port: 8888
+	RPort: 8888
+	Branch: z9hG4bK659a7b1f86e3a365073c93ce510f646a
+	Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+	Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+	Server: Sip EXpress router (2.1.0-dev1-OpenIMSCore (i386/linux))
+	Content-Length: 0
+	Warning: 392 10.20.4.242:6060 &quot;Noisy feedback tells: pid=23362 req_src_ip=10.20.4.242 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060 out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+	WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;, nonce=&quot;VYlBHAbf7q2AuCPg3eOnbgo2d/i1ywAAYWlZeUx/nwM=&quot;, algorithm=AKAv1-MD5
+	Authentication Scheme: Digest
+	Realm: &quot;open-ims.test&quot;
+	Nonce Value: &quot;VYlBHAbf7q2AuCPg3eOnbgo2d/i1ywAAYWlZeUx/nwM=&quot;
+	Algorithm: AKAv1-MD5
+	Security-Server: ipsec-3gpp; ealg=null; alg=hmac-sha-1-96; spi-c=5014; spi-s=5015; port-c=4060; port-s=4060; q=0.1
+	
+	Re-Register message:
+	
+	Session Initiation Protocol
+	Request-Line: REGISTER sip:open-ims.test SIP/2.0
+	Method: REGISTER
+	[Resent Packet: False]
+	Message Header
+	Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">c17caea528aae903136341045e454540 at 10.20.4.242</A>
+	CSeq: 2 REGISTER
+	Sequence Number: 2
+	Method: REGISTER
+	Via: SIP/2.0/UDP 10.20.4.242:8888;branch=z9hG4bKc8fed62457fa4e80a144c90c67fd42b0
+	Transport: UDP
+	Sent-by Address: 10.20.4.242
+	Sent-by port: 8888
+	Branch: z9hG4bKc8fed62457fa4e80a144c90c67fd42b0
+	Max-Forwards: 70
+	Expires: 3600
+	P-Access-Network-Info: IEEE-802.11
+	Privacy: none
+	Security-Client: ipsec-3gpp; alg=hmac-sha-1-96;ealg=Digest-AKAv1-MD5;spi-c=10000;spi-s=10002;port-c=5062;port-s=5063
+	Supported: path
+	Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	Contact Binding: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	URI: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888&gt;
+	SIP contact address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">null at 10.20.4.242</A>:8888
+	Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;VYlBHAbf7q2AuCPg3eOnbgo2d/i1ywAAYWlZeUx/nwM=&quot;,uri=&quot;sip:open-ims.test&quot;,response=&quot;6472db187f2fa2253ee5d13b83ef864c&quot;,algorithm=AKAv1-MD5
+	Authentication Scheme: Digest
+	Username: &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&quot;
+	Realm: &quot;open-ims.test&quot;
+	Nonce Value: &quot;VYlBHAbf7q2AuCPg3eOnbgo2d/i1ywAAYWlZeUx/nwM=&quot;
+	Authentication URI: &quot;sip:open-ims.test&quot;
+	Digest Authentication Response: &quot;6472db187f2fa2253ee5d13b83ef864c&quot;
+	Algorithm: AKAv1-MD5
+	From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=9956845
+	SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 9956845
+	To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;
+	SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	Security-Verify: ipsec-3gpp; ealg=null;alg=hmac-sha-1-96;spi-c=5014;spi-s=5015;port-c=4060;port-s=4060;q=0.1
+	Content-Length: 0
+	
+	Unauthorised message that came again:
+	
+	Session Initiation Protocol
+	Status-Line: SIP/2.0 401 Unauthorized - Challenging the UE
+	Status-Code: 401
+	[Resent Packet: False]
+	Message Header
+	Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">c17caea528aae903136341045e454540 at 10.20.4.242</A>
+	CSeq: 2 REGISTER
+	Sequence Number: 2
+	Method: REGISTER
+	Via: SIP/2.0/UDP 10.20.4.242:8888;rport=8888;branch=z9hG4bKc8fed62457fa4e80a144c90c67fd42b0
+	Transport: UDP
+	Sent-by Address: 10.20.4.242
+	Sent-by port: 8888
+	RPort: 8888
+	Branch: z9hG4bKc8fed62457fa4e80a144c90c67fd42b0
+	From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=9956845
+	SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 9956845
+	To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>&gt;;tag=593f71f0682f6ebdf2b85804737f7f87-26d9
+	SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+	SIP tag: 593f71f0682f6ebdf2b85804737f7f87-26d9
+	Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">term at pcscf.open-ims.test</A>:4060;lr&gt;
+	Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+	Server: Sip EXpress router (2.1.0-dev1-OpenIMSCore (i386/linux))
+	Content-Length: 0
+	Warning: 392 10.20.4.242:6060 &quot;Noisy feedback tells: pid=23363 req_src_ip=10.20.4.242 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060 out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+	WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;, nonce=&quot;7pEWhsdGRoPMdXdWDdumRdVRo/4lzQAA2UZjezpwyNg=&quot;, algorithm=AKAv1-MD5
+	Authentication Scheme: Digest
+	Realm: &quot;open-ims.test&quot;
+	Nonce Value: &quot;7pEWhsdGRoPMdXdWDdumRdVRo/4lzQAA2UZjezpwyNg=&quot;
+	Algorithm: AKAv1-MD5
+	Security-Server: ipsec-3gpp; ealg=null; alg=hmac-sha-1-96; spi-c=5008; spi-s=5009; port-c=4060; port-s=4060; q=0.1
+	
+	please provide me clues...
+	
+	regards,
+	Naga
+	
+	
+
+	By: jmfreitas &lt;<A HREF="https://developer.berlios.de/users/jmfreitas/">https://developer.berlios.de/users/jmfreitas/</A>&gt;  ( Miguel Freitas ) 
+ RE: Registration not successfull-used AKAv1-M [ reply ] &lt;<A HREF="https://developer.berlios.de/forum/message.php?msg_id=37544">https://developer.berlios.de/forum/message.php?msg_id=37544</A>&gt;    
+2007-Apr-24 10:18 	
+	Hi Naga.
+You can also use the lists to provide your input...
+Sorry about the delay, the berliOS was down since last week...
+About that problem, of the user being always challenged when trying to register, curiously it happened to be yesterday! 
+Apparently it was due to something that was breaking the ims-communicator.xml file (after doing a &quot;replace all&quot; with notepad). So I suggest that you replace it with the one from SVN.
+
+Best regards,
+Miguel Freitas 	
+
+		
+
+By: stefanspodniak &lt;<A HREF="https://developer.berlios.de/users/stefanspodniak/">https://developer.berlios.de/users/stefanspodniak/</A>&gt;  ( stefan spodniak ) 
+ Problem with registration [ reply ] &lt;<A HREF="https://developer.berlios.de/forum/message.php?msg_id=36921">https://developer.berlios.de/forum/message.php?msg_id=36921</A>&gt;    
+2007-Mar-21 14:20 	
+Hi,
+can anyone help with my problem.
+I cannot register to the open IMS network. I get this message 
+SipCommunicator's SipManager didn't know how to handle the message 494 Security Agreement Required
+in the current context!
+
+SIP/2.0 494 Security Agreement Required
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">3502897300c263afd8e38f5f60d1cf7d at 192.168.204.51</A>
+CSeq: 1 REGISTER
+From: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.stromslovakia.sk</A>&gt;;tag=12217363
+To: &quot;bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.stromslovakia.sk</A>&gt;;tag=2d2648abf72945362333d9a7f6003306-3e9c
+Via: SIP/2.0/UDP 192.168.204.51:5062;branch=z9hG4bK6a7c0d069665ef8df2df3b7b2d95e567;rport=5062
+Proxy-Require: sec-agree
+Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+Warning: 392 172.16.48.3:4060 &quot;Noisy feedback tells: pid=2187 req_src_ip=192.168.204.51 req_src_port=5062 in_uri=sip:ims.stromslovakia.sk out_uri=sip:ims.stromslovakia.sk via_cnt==1&quot;
+Content-Length: 0
+
+My XML, file is...
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration&gt;
+&lt;log4j&gt;
+&lt;rootLogger value=&quot;net.java.sip.communicator.common.Console.TraceLevel, RFLogger&quot;/&gt;
+&lt;appender&gt;
+&lt;RFLogger value=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
+&lt;layout value=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+&lt;ConversionPattern value=&quot;%r [%t] %p %c{2} %x - %m%n&quot;/&gt;
+&lt;/layout&gt;
+&lt;MaxBackupIndex value=&quot;1&quot;/&gt;
+&lt;File value=&quot;log/ims-communicator.app.log&quot;/&gt;
+&lt;MaxFileSize value=&quot;256KB&quot;/&gt;
+&lt;/RFLogger&gt;
+&lt;/appender&gt;
+&lt;/log4j&gt;
+&lt;net&gt;
+&lt;java&gt;
+&lt;sip&gt;
+&lt;communicator&gt;
+&lt;FIRST_LAUNCH value=&quot;false&quot;/&gt;
+&lt;ENABLE_SIMPLE value=&quot;false&quot;/&gt;
+&lt;media&gt;
+&lt;!--- &lt;PREFERRED_AUDIO_ENCODING system=&quot;false&quot; value=&quot;&quot;/&gt; --&gt;
+&lt;PREFERRED_AUDIO_ENCODING value=&quot;0&quot;/&gt;
+&lt;PREFERRED_VIDEO_ENCODING value=&quot;34&quot;/&gt;
+&lt;NO_AUDIO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+&lt;NO_VIDEO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+&lt;MEDIA_SOURCE value=&quot;&quot;/&gt;
+&lt;MEDIA_BUFFER_LENGTH value=&quot;100&quot;/&gt;
+&lt;IP_ADDRESS value=&quot;&quot;/&gt;
+&lt;AUDIO_PORT value=&quot;&quot;/&gt;
+&lt;VIDEO_PORT value=&quot;&quot;/&gt;
+&lt;/media&gt;
+&lt;sip&gt;
+&lt;PUBLIC_ADDRESS value=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.stromslovakia.sk</A>&quot;/&gt;
+&lt;TRANSPORT value=&quot;&quot;/&gt;
+&lt;REGISTRAR_ADDRESS value=&quot;ims.stromslovakia.sk&quot;/&gt;
+&lt;USER_NAME value=&quot;bob&quot;/&gt;
+&lt;STACK_PATH value=&quot;gov.nist&quot;/&gt;
+&lt;PREFERRED_LOCAL_PORT value=&quot;5062&quot;/&gt;
+&lt;DISPLAY_NAME value=&quot;bob&quot;/&gt;
+&lt;REGISTRAR_TRANSPORT value=&quot;UDP&quot;/&gt;
+&lt;REGISTRATIONS_EXPIRATION value=&quot;3600&quot;/&gt;
+&lt;REGISTRAR_PORT value=&quot;4060&quot;/&gt;
+&lt;FAIL_CALLS_ON_DEST_USER_MISMATCH value=&quot;false&quot;/&gt;
+&lt;DEFAULT_DOMAIN_NAME value=&quot;ims.stromslovakia.sk&quot;/&gt; 
+&lt;DEFAULT_AUTHENTICATION_REALM value=&quot;ims.stromslovakia.sk&quot;/&gt; 
+&lt;WAIT_UNREGISTGRATION_FOR value=&quot;1100&quot;/&gt;
+&lt;SAME_USER_EVERYWHERE value=&quot;true&quot;/&gt;
+
+&lt;!-- IMS Client --&gt;
+
+&lt;ims&gt;
+&lt;IMS_CLIENT value=&quot;false&quot;/&gt;
+&lt;PRIVATE_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.stromslovakia.sk</A>&quot;/&gt;
+&lt;PREFERRED_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims.stromslovakia.sk</A>&quot;/&gt;
+&lt;PREFERRED_DISPLAY_NAME value=&quot;&quot;/&gt;
+&lt;PRIVACY value=&quot;none&quot;/&gt;
+&lt;!-- operator ID : 16 bytes (32 hex char) --&gt;
+&lt;OPERATOR_ID value=&quot;00000000000000000000000000000000&quot;/&gt;
+&lt;!-- if SECURITY_AGREEMENT value is empty, Security-Client header is not sent --&gt;
+&lt;SECURITY_AGREEMENT value=&quot;ipsec-3gpp&quot;/&gt;
+&lt;SECURITY_ALGORITHM value=&quot;hmac-sha-1-96&quot;/&gt;
+&lt;SECURITY_ENCRYPT_ALG value=&quot;&quot;/&gt;
+&lt;SECURITY_SPI_C value=&quot;10000&quot;/&gt;
+&lt;SECURITY_SPI_S value=&quot;10002&quot;/&gt;
+&lt;SECURITY_PORT_C value=&quot;5062&quot;/&gt;
+&lt;SECURITY_PORT_S value=&quot;4060&quot;/&gt;
+&lt;ACCEPT_REFER_WITHOUT_SESSION_ON value=&quot;true&quot;/&gt;
+&lt;REFER_TIMEOUT value=&quot;60000&quot;/&gt;
+&lt;REG_EVENT_SUBSCRIPTION_TIMEOUT value=&quot;600000&quot;/&gt;
+&lt;ACCESS_TYPE value=&quot;IEEE-802.11&quot;/&gt;
+&lt;DEFAULT_LOCAL_PRECONDITION value=&quot;sendrecv&quot;/&gt;
+&lt;VIDEO_BANDWIDTH value=&quot;75&quot;/&gt;
+&lt;AUDIO_BANDWIDTH value=&quot;25&quot;/&gt;
+
+&lt;!-- testing feature --&gt;
+&lt;PCSCF_DYNAMIC_DISCOVERY value=&quot;false&quot;/&gt;
+&lt;/ims&gt;
+
+&lt;!-- end of IMS Client --&gt;
+
+&lt;simple&gt;
+&lt;CONTACT_LIST_FILE value=&quot;contact-list.xml&quot;/&gt;
+&lt;SUBSCRIPTION_EXP_TIME value=&quot;150&quot;/&gt;
+&lt;MIN_EXP_TIME value=&quot;60&quot;/&gt;
+&lt;LAST_SELECTED_OPEN_STATUS value=&quot;busy&quot;/&gt;
+&lt;/simple&gt;
+&lt;/sip&gt;
+
+&lt;gui&gt;
+&lt;AUTH_WIN_TITLE value=&quot;SIP Authentication!&quot;/&gt;
+&lt;AUTHENTICATION_PROMPT value=&quot;Please enter login name and password for the specified realm:&quot;/&gt;
+&lt;USER_NAME_LABEL value=&quot;UserName:&quot;/&gt;
+&lt;USER_NAME_EXAMPLE value=&quot;Example: testes1&quot;/&gt;
+&lt;PASSWORD_LABEL value=&quot;Password:&quot;/&gt;
+&lt;!--GUI_MODE value=&quot;PhoneUiMode&quot;/--&gt;
+&lt;PHONE_GUI_MODE value=&quot;true&quot;/&gt;
+&lt;IM_GUI_MODE value=&quot;false&quot;/&gt;
+&lt;imp&gt;
+&lt;CONTACT_LIST_X value=&quot;269&quot;/&gt;
+&lt;CONTACT_LIST_Y value=&quot;158&quot;/&gt;
+&lt;CONTACT_LIST_WIDTH value=&quot;157&quot;/&gt;
+&lt;CONTACT_LIST_HEIGHT value=&quot;433&quot;/&gt;
+&lt;/imp&gt;
+&lt;logo&gt;
+&lt;MAIN_LOGO value=&quot;default-logo.jpg&quot;/&gt;
+&lt;PHONE_GUI_ICON value=&quot;default-icon.jpg&quot;/&gt;
+&lt;IM_GUI_ICON value=&quot;presence-icon-16x16.jpg&quot;/&gt;
+&lt;/logo&gt;
+&lt;/gui&gt;
+
+&lt;common&gt;
+&lt;PREFERRED_NETWORK_INTERFACE value=&quot;Broadcom NetXtreme Gigabit Ethernet - Packet Scheduler Miniport&quot;/&gt;
+&lt;PREFERRED_NETWORK_ADDRESS value=&quot;192.168.204.51&quot;/&gt;
+&lt;/common&gt;
+
+
+&lt;!--
+net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false
+net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=<A HREF="http://my.sipphone.com">http://my.sipphone.com</A> &lt;<A HREF="http://my.sipphone.com/">http://my.sipphone.com/</A>&gt; 
+--&gt;
+&lt;sipphone&gt;
+&lt;IS_RUNNING_SIPPHONE value=&quot;false&quot;/&gt;
+&lt;MY_SIPPHONE_URL value=&quot;<A HREF="http://my.sipphone.com">http://my.sipphone.com</A>&quot;/&gt; &lt;<A HREF="http://my.sipphone.com%22/%3E">http://my.sipphone.com%22/%3E</A>&gt; ;
+&lt;USER_NAME_EXAMPLE value=&quot;testes1&quot;/&gt;
+&lt;/sipphone&gt;
+&lt;!--
+net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!
+net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name and password for the specified realm:
+net.java.sip.communicator.gui.USER_NAME_LABEL=SIPphone Number:
+net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=Example: 1-747-555-1212
+net.java.sip.communicator.gui.PASSWORD_LABEL=Password:
+--&gt;
+
+&lt;!--
+net.java.sip.communicator.STUN_SERVER_ADDRESS=stun01.sipphone.com
+net.java.sip.communicator.STUN_SERVER_PORT=3478
+net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212
+--&gt;
+&lt;!--STUN_SERVER_ADDRESS value=&quot;stun01.sipphone.com&quot;/--&gt;
+&lt;!--STUN_SERVER_PORT value=&quot;3478&quot;/--&gt;
+&lt;VOICE_MAIL_ADDRESS value=&quot;17475551212&quot;/&gt;
+&lt;/communicator&gt;
+&lt;/sip&gt;
+&lt;/java&gt;
+&lt;/net&gt;
+&lt;gov&gt;
+&lt;nist&gt;
+&lt;javax&gt;
+&lt;sip&gt;
+&lt;SERVER_LOG value=&quot;log/ims-communicator.stack.log&quot;/&gt;
+&lt;TRACE_LEVEL value=&quot;16&quot;/&gt;
+&lt;/sip&gt;
+&lt;/javax&gt;
+&lt;/nist&gt;
+&lt;/gov&gt;
+&lt;javax&gt;
+&lt;sip&gt;
+&lt;IP_ADDRESS value=&quot;192.168.204.51&quot;/&gt;
+&lt;STACK_NAME value=&quot;sip-communicator&quot;/&gt;
+&lt;ROUTER_PATH value=&quot;net.java.sip.communicator.sip.SipCommRouter&quot;/&gt;
+&lt;!-- important: sip outbound proxy format is &lt;address&gt;:&lt;port&gt;/&lt;transport&gt; --&gt;
+&lt;OUTBOUND_PROXY value=&quot;172.16.48.3:4060/udp&quot;/&gt;
+&lt;RETRANSMISSON_FILTER value=&quot;&quot;/&gt;
+&lt;EXTENSION_METHODS value=&quot;&quot;/&gt;
+&lt;RETRANSMISSION_FILTER value=&quot;true&quot;/&gt;
+&lt;/sip&gt;
+&lt;/javax&gt;
+&lt;java&gt;
+&lt;net&gt;
+&lt;preferIPv4Stack system=&quot;true&quot; value=&quot;true&quot;/&gt;
+&lt;preferIPv6Addresses system=&quot;false&quot; value=&quot;false&quot;/&gt;
+&lt;/net&gt;
+&lt;/java&gt;
+&lt;/configuration&gt;
+
+
+Thanks for any help...	
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[imscommunicator-users] Presence Support in IMS Communicator
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[imscommunicator-users] Problems starting IMS communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

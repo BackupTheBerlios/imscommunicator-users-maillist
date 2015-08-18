@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Compiling from source
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Compiling%20from%20source&In-Reply-To=%3C7de9843a0903180055y56fb86e0md811e576e5eb1eba%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000149.html">
+   <LINK REL="Next"  HREF="000151.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Compiling from source</H1>
+    <B>maanasa s</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Compiling%20from%20source&In-Reply-To=%3C7de9843a0903180055y56fb86e0md811e576e5eb1eba%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] Compiling from source">maanasa83 at gmail.com
+       </A><BR>
+    <I>Wed Mar 18 08:55:16 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000149.html">[imscommunicator-users] Publish method support
+</A></li>
+        <LI>Next message: <A HREF="000151.html">[imscommunicator-users] svn checkout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#150">[ date ]</a>
+              <a href="thread.html#150">[ thread ]</a>
+              <a href="subject.html#150">[ subject ]</a>
+              <a href="author.html#150">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I am trying to compile ims communicator from the source. I have exported the
+project in eclipse on Linux.
+I get a Communications exception saying the sip stack could not be created.
+I have set the outbound proxy correctly.
+When i tried debugging I found that the exception is thrown from
+SipManager.java, line 398
+
+try {
+                sipStack =
+sipFactory.createSipStack(System.getProperties());
+            }
+            catch (PeerUnavailableException ex) {
+                console.error(&quot;Could not create SipStack!&quot;, ex);
+                throw new CommunicationsException(
+                    &quot;Could not create SipStack!\n&quot;
+                    +
+                    &quot;A possible reason is an incorrect OUTBOUND_PROXY
+property\n&quot;
+                    + &quot;(Syntax:&lt;proxy_address:port/transport&gt;)&quot;,
+                    ex
+                    );
+            }
+
+The System.getProperties() shows this on inspecting
+
+System.getProperties()
+     (java.util.Properties) {file.encoding.pkg=sun.io,
+net.java.sip.communicator.sip.ims.sec.SECURITY_ALGORITHM=hmac-sha-1-96,
+net.java.sip.communicator.sip.simple.SUBSCRIPTION_EXP_TIME=150,
+net.java.sip.communicator.sip.DEFAULT_AUTHENTICATION_REALM=ims-iiitb.ac.in,
+java.home=/usr/lib/jvm/java-6-sun-1.6.0.07/jre,
+net.java.sip.communicator.sip.SAME_USER_EVERYWHERE=true,
+java.net.preferIPv4Stack=true,
+net.java.sip.communicator.sip.REGISTRAR_TRANSPORT=UDP,
+net.java.sip.communicator.sip.ims.sec.OPERATOR_ID=00000000000000000000000000000000,
+log4j.appender.RFLogger.MaxBackupIndex=1,
+java.endorsed.dirs=/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/endorsed,
+sun.os.patch.level=unknown, java.vendor.url=<A HREF="http://java.sun.com/,">http://java.sun.com/,</A>
+java.version=1.6.0_07, net.java.sip.communicator.media.IP_ADDRESS=,
+java.vendor.url.bug=<A HREF="http://java.sun.com/cgi-bin/bugreport.cgi,">http://java.sun.com/cgi-bin/bugreport.cgi,</A>
+net.java.sip.communicator.common.PREFERRED_NETWORK_ADDRESS=10.33.1.141,
+net.java.sip.communicator.sip.ims.ACCESS_TYPE=IEEE-802.11,
+net.java.sip.communicator.sip.PREFERRED_LOCAL_PORT=5060,
+net.java.sip.communicator.sip.ims.sec.AUTH_ALGORITHM=AKAv1-MD5, user.name=root,
+net.java.sip.communicator.gui.logo.PHONE_GUI_ICON=default-icon.jpg,
+gov.nist.javax.sip.SERVER_LOG=log/ims-communicator.stack.log,
+sun.io.unicode.encoding=UnicodeLittle, sun.jnu.encoding=UTF-8,
+java.runtime.name=Java(TM) SE Runtime Environment,
+net.java.sip.communicator.common.PREFERRED_NETWORK_INTERFACE=eth0,
+log4j.rootLogger=net.java.sip.communicator.common.Console.TraceLevel,
+RFLogger, java.specification.name=Java Platform API Specification,
+user.timezone=Asia/Calcutta, path.separator=:, file.encoding=UTF-8,
+net.java.sip.communicator.sip.ims.PREFERRED_DISPLAY_NAME=,
+net.java.sip.communicator.sip.ims.REG_EVENT_SUBSCRIPTION_TIMEOUT=600000,
+net.java.sip.communicator.FIRST_LAUNCH=false,
+net.java.sip.communicator.sip.ims.AUDIO_BANDWIDTH=25,
+net.java.sip.communicator.sip.ims.sec.USE_IPSEC=false,
+net.java.sip.communicator.sip.ims.sec.SECURITY_ENCRYPT_ALG=,
+net.java.sip.communicator.sip.WAIT_UNREGISTGRATION_FOR=1100,
+java.io.tmpdir=/tmp,
+net.java.sip.communicator.gui.logo.IM_GUI_ICON=presence-icon.jpg,
+user.language=en, line.separator=
+, net.java.sip.communicator.sip.MIN_SE=,
+net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name
+and password for the specified realm:, java.vm.info=mixed mode,
+log4j.appender.RFLogger.File=log/ims-communicator.app.log,
+net.java.sip.communicator.sip.ims.sec.SECURITY_AGREEMENT=ipsec-3gpp,
+java.vm.specification.name=Java Virtual Machine Specification,
+javax.sip.EXTENSION_METHODS=,
+net.java.sip.communicator.gui.USER_NAME_LABEL=User Name:,
+net.java.sip.communicator.sip.ims.REFER_TIMEOUT=60000,
+javax.sip.RETRANSMISSION_FILTER=true,
+gov.nist.javax.sip.BAD_MESSAGE_LOG=log/ims-communicator.ignored.log,
+net.java.sip.communicator.media.NO_AUDIO_DESCRIPTION_IN_SDP=false,
+net.java.sip.communicator.media.AUDIO_PORT=,
+java.awt.printerjob=sun.print.PSPrinterJob,
+net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=testes1,
+net.java.sip.communicator.sip.REGISTRAR_PORT=5060,
+net.java.sip.communicator.gui.PHONE_GUI_MODE=true,
+net.java.sip.communicator.sip.REGISTRATIONS_EXPIRATION=3600,
+javax.sip.OUTBOUND_PROXY=10.33.1.113:4060/udp,
+net.java.sip.communicator.sip.ims.ACCEPT_REFER_WITHOUT_SESSION_ON=true,
+net.java.sip.communicator.sip.ims.PCSCF_DYNAMIC_DISCOVERY=false,
+net.java.sip.communicator.gui.USER_NAME_EXAMPLE=Example: testes1,
+net.java.sip.communicator.sip.simple.MIN_EXP_TIME=60, os.name=Linux,
+java.specification.vendor=Sun Microsystems Inc.,
+net.java.sip.communicator.gui.PASSWORD_LABEL=Password:, java.vm.name=Java
+HotSpot(TM) Server VM, net.java.sip.communicator.sip.ims.VIDEO_BANDWIDTH=75,
+net.java.sip.communicator.sip.ims.sec.SHARED_SECRET=,
+java.library.path=/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/i386/server:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/../lib/i386:/usr/lib/xulrunner:/usr/java/packages/lib/i386:/lib:/usr/lib,
+net.java.sip.communicator.sip.PUBLIC_ADDRESS=sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims-iiitb.ac.in</A>&lt;sip%<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">3Abob at ims-iiitb.ac.in</A>&gt;,
+java.class.version=50.0, net.java.sip.communicator.ENABLE_SIMPLE=true,
+net.java.sip.communicator.sip.ims.IMS_CLIENT=true,
+net.java.sip.communicator.media.NO_VIDEO_DESCRIPTION_IN_SDP=false,
+net.java.sip.communicator.sip.SESSION_EXPIRES=,
+net.java.sip.communicator.sip.TRANSPORT=,
+net.java.sip.communicator.sip.DISPLAY_NAME=bob,
+net.java.sip.communicator.media.MEDIA_BUFFER_LENGTH=100,
+net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false,
+net.java.sip.communicator.sip.REGISTRAR_ADDRESS=ims-iiitb.ac.in,
+net.java.sip.communicator.gui.logo.MAIN_LOGO=default-logo.jpg,
+javax.sip.RETRANSMISSON_FILTER=,
+net.java.sip.communicator.sip.ACCEPT_EARLY_MEDIA=true,
+net.java.sip.communicator.gui.imp.CONTACT_LIST_WIDTH=157,
+sun.boot.library.path=/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/i386,
+sun.management.compiler=HotSpot Tiered Compilers,
+net.java.sip.communicator.sip.ims.PRIVATE_ADDRESS=<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims-iiitb.ac.in</A>,
+javax.sip.ROUTER_PATH=net.java.sip.communicator.sip.SipCommRouter,
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment,
+net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212,
+log4j.appender.RFLogger.layout=org.apache.log4j.PatternLayout,
+net.java.sip.communicator.sip.DEFAULT_DOMAIN_NAME=ims-iiitb.ac.in,
+javax.sip.IP_ADDRESS=10.33.1.141, gov.nist.javax.sip.TRACE_LEVEL=16,
+log4j.appender.RFLogger.layout.ConversionPattern=%r [%t] %p %c{2} %x - %m%n,
+java.vm.specification.version=1.0,
+net.java.sip.communicator.media.MEDIA_SOURCE=, sun.cpu.isalist=,
+net.java.sip.communicator.sip.ims.sec.PRIVACY_PARAMS=,
+java.ext.dirs=/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/ext:/usr/java/packages/lib/ext,
+os.version=2.6.24-23-generic,
+net.java.sip.communicator.media.PREFERRED_AUDIO_ENCODING=0,
+net.java.sip.communicator.media.VIDEO_PORT=,
+net.java.sip.communicator.sip.ims.sec.PROTECT_PREFERRED_LOCAL_PORT=true,
+user.home=/root,
+gov.nist.javax.sip.DEBUG_LOG=log/ims-communicator.debug.log,
+net.java.sip.communicator.sip.simple.CONTACT_LIST_FILE=contact-list.xml,
+java.vm.vendor=Sun Microsystems Inc.,
+net.java.sip.communicator.gui.imp.CONTACT_LIST_HEIGHT=433,
+net.java.sip.communicator.gui.IM_GUI_MODE=false,
+user.dir=/home/maanasa/workspace/ims-communicator,
+log4j.appender.RFLogger.MaxFileSize=256KB,
+net.java.sip.communicator.sip.FAIL_CALLS_ON_DEST_USER_MISMATCH=false,
+net.java.sip.communicator.sip.ims.DEFAULT_LOCAL_PRECONDITION=sendrecv,
+net.java.sip.communicator.sip.ims.PREFERRED_ADDRESS=<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at ims-iiitb.ac.in</A>,
+sun.cpu.endian=little,
+net.java.sip.communicator.sip.simple.LAST_SELECTED_OPEN_STATUS=busy,
+net.java.sip.communicator.media.PREFERRED_VIDEO_ENCODING=34,
+javax.sip.STACK_NAME=sip-communicator, java.vm.version=10.0-b23,
+java.class.path=/home/maanasa/ims-communicator/classes:/ims-communicator/bin:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/charsets.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/im/indicim.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/im/thaiim.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/jce.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/jsse.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/plugin.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/lib/dt.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/lib/htmlconverter.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/lib/tools.jar:/home/maanasa/ims-communicator/lib/jmf-lin/jmf.jar:/home/maanasa/ims-communicator/lib/jmf-lin/libjmutil.so.jar:/home/maanasa/ims-communicator/lib/JainSipApi1.1-ims.jar:/home/maanasa/ims-communicator/lib/nist-sip-1.2-ims.jar:/home/maanasa/ims-communicator/lib/nist-sdp-1.0-ims.jar:/home/maanasa/ims-communicator/lib/log4j-1.2.8.jar:/home/maanasa/ims-communicator/lib/Stun4J.jar:/root/.jmf,
+net.java.sip.communicator.sip.EXCESSIVE_URI_CHARACTERS=( ), os.arch=i386,
+sun.java.launcher=SUN_STANDARD,
+net.java.sip.communicator.sip.STACK_PATH=gov.nist,
+net.java.sip.communicator.gui.imp.CONTACT_LIST_Y=165,
+java.vm.specification.vendor=Sun Microsystems Inc.,
+net.java.sip.communicator.gui.imp.CONTACT_LIST_X=185, file.separator=/,
+java.runtime.version=1.6.0_07-b06,
+sun.boot.class.path=/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/resources.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/rt.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/jsse.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/jce.jar:/usr/lib/jvm/java-6-sun-1.6.0.07/jre/lib/charsets.jar:/home/maanasa/ims-communicator/lib/concurrent.jar:/home/maanasa/ims-communicator/lib/JainSipApi1.1-ims.jar:/home/maanasa/ims-communicator/lib/log4j-1.2.8.jar:/home/maanasa/ims-communicator/lib/nist-sdp-1.0-ims.jar:/home/maanasa/ims-communicator/lib/nist-sip-1.2-ims.jar:/home/maanasa/ims-communicator/lib/Stun4J.jar:/home/maanasa/ims-communicator/lib/jmf-all/jmf.jar:/home/maanasa/ims-communicator/lib/jmf-lin/jmf.jar:/home/maanasa/ims-communicator/lib/jmf-lin/jmf-native.jar:/home/maanasa/ims-communicator/lib/jmf-lin/libjmutil.so.jar:/home/maanasa/ims-communicator/lib/log4j-1.2.8.jar,
+net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=<A HREF="http://my.sipphone.com,">http://my.sipphone.com,</A>
+user.country=IN,
+log4j.appender.RFLogger=org.apache.log4j.RollingFileAppender,
+net.java.sip.communicator.sip.USER_NAME=bob, java.vendor=Sun Microsystems
+Inc., net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!,
+java.specification.version=1.6, sun.arch.data.model=32,
+net.java.sip.communicator.sip.ims.sec.REJECT_MALFORMED_NONCE=false}
+
+
+Can someone please help me resolve this error. I have attached the screen
+shot of the error.
+
+
+--
+Thanks &amp; Regards,
+maanasa
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20090318/94d2dea1/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20090318/94d2dea1/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Screenshot.png
+Type: image/png
+Size: 164602 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20090318/94d2dea1/attachment.png">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20090318/94d2dea1/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000149.html">[imscommunicator-users] Publish method support
+</A></li>
+	<LI>Next message: <A HREF="000151.html">[imscommunicator-users] svn checkout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#150">[ date ]</a>
+              <a href="thread.html#150">[ thread ]</a>
+              <a href="subject.html#150">[ subject ]</a>
+              <a href="author.html#150">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

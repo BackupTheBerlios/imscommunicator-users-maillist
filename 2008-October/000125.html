@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Enabling Presence on ims-communicator(Linux based)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Enabling%20Presence%20on%0A%20ims-communicator%28Linux%20based%29&In-Reply-To=%3CAA970528BDC4D3439B10D0D6295E87A6012AC64276%40INOAVREX11.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000124.html">
+   <LINK REL="Next"  HREF="000126.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Enabling Presence on ims-communicator(Linux based)</H1>
+    <B>Jos&#233; Miguel Freitas</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Enabling%20Presence%20on%0A%20ims-communicator%28Linux%20based%29&In-Reply-To=%3CAA970528BDC4D3439B10D0D6295E87A6012AC64276%40INOAVREX11.ptin.corpPT.com%3E"
+       TITLE="[imscommunicator-users] Enabling Presence on ims-communicator(Linux based)">jose-m-freitas at ptinovacao.pt
+       </A><BR>
+    <I>Mon Oct 27 11:05:14 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000124.html">[imscommunicator-users] Enabling Presence on	ims-communicator(Linux based)
+</A></li>
+        <LI>Next message: <A HREF="000126.html">[imscommunicator-users] Enabling Presence on	ims-communicator(Linux based)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#125">[ date ]</a>
+              <a href="thread.html#125">[ thread ]</a>
+              <a href="subject.html#125">[ subject ]</a>
+              <a href="author.html#125">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Can you confirm if your contact-list.xml looks somehow similar to following? And is it located in the root of your application (where the ims-communicator.jar is)?
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;contact-list&gt;
+&lt;group name=&quot;buddies&quot;&gt;
+&lt;contact alias=&quot;bob&quot; presentity=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at test-ims.com</A>&quot;/&gt;
+&lt;/group&gt;
+&lt;/contact-list&gt;
+
+You can only add users/group when right-clicking on top of the root group &quot;buddies&quot;...
+
+Cheers,
+Miguel
+
+De: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">naik.pict at gmail.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">naik.pict at gmail.com</A>] Em nome de Rishikesh Naik
+Enviada: s&#225;bado, 25 de Outubro de 2008 17:50
+Para: Jos&#233; Miguel Freitas
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>
+Assunto: Re: [imscommunicator-users] Enabling Presence on ims-communicator(Linux based)
+
+Hi,
+
+Thanks for your reply!
+
+But, on Linux (Fedora 9), I am not able to get buddy list working. Nothing happens when I right-click on any part of contact-list GUI.  I am not even able to see &quot;buddies&quot; folder being displayed.
+
+I read the README file as well and tried adding entries directly into contact-list.xml file. But those entries also don't show up in GUI.
+
+So, could you please tell me how I should manipulate buddy list?
+
+Thanks,
+Rishikesh
+On Tue, Oct 21, 2008 at 4:53 AM, Jos&#233; Miguel Freitas &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">jose-m-freitas at ptinovacao.pt</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">jose-m-freitas at ptinovacao.pt</A>&gt;&gt; wrote:
+
+Hi Rishikesh,
+
+I'm sorry, but for the moment I'm not able to help you in this matter with the urgency that you require.
+
+It is possible that the presence feature might not be fully operational (since I didn't give it a lot of attention), but the buddy list should be working.
+
+Nevertheless, I have taken a note for this issue and I'll let you know if I came out with a solution.
+
+BR, Miguel Freitas
+
+
+
+De: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A>&gt; [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users-bounces at lists.berlios.de</A>&gt;] Em nome de Rishikesh Naik
+Enviada: ter&#231;a-feira, 21 de Outubro de 2008 5:27
+Para: <A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">imscommunicator-users at lists.berlios.de</A>&gt;
+Assunto: Re: [imscommunicator-users] Enabling Presence on ims-communicator(Linux based)
+
+
+
+Hi All,
+
+I need some solution urgently on this issue. So, can anybody help me?
+
+Thanks,
+Rishikesh
+
+On Sat, Oct 18, 2008 at 10:06 AM, Rishikesh Naik &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">rishinaik9 at gmail.com</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">rishinaik9 at gmail.com</A>&gt;&gt; wrote:
+
+Hi All,
+
+I am trying to configure ims-communicator for presence but I am facing problems. I went through the latest user guide as well. Steps given there suggest that if I enable buddy list then I should be able to configure for presence feature.
+But on Linux, I am not able to configure the budd list as well. Is there support for adding buddies into the buddy list on Linux-based version of ims-communicator?
+
+(I have already configured SIMPLE).
+
+I am using the revision 95 of ims-communicator.
+
+Thanks for your help!
+
+Regards,
+Rishikesh
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081027/8e789f59/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081027/8e789f59/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000124.html">[imscommunicator-users] Enabling Presence on	ims-communicator(Linux based)
+</A></li>
+	<LI>Next message: <A HREF="000126.html">[imscommunicator-users] Enabling Presence on	ims-communicator(Linux based)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#125">[ date ]</a>
+              <a href="thread.html#125">[ thread ]</a>
+              <a href="subject.html#125">[ subject ]</a>
+              <a href="author.html#125">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

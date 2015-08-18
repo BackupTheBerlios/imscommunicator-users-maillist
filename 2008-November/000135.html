@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Registration and contact-list display	issues on Linux-version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20and%20contact-list%20display%0A%09issues%20on%20Linux-version&In-Reply-To=%3C2cde12940811211809t201b1916i6ccb18103b8e3920%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000134.html">
+   <LINK REL="Next"  HREF="000136.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Registration and contact-list display	issues on Linux-version</H1>
+    <B>Rishikesh Naik</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20and%20contact-list%20display%0A%09issues%20on%20Linux-version&In-Reply-To=%3C2cde12940811211809t201b1916i6ccb18103b8e3920%40mail.gmail.com%3E"
+       TITLE="[imscommunicator-users] Registration and contact-list display	issues on Linux-version">rishinaik9 at gmail.com
+       </A><BR>
+    <I>Sat Nov 22 03:09:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000134.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+        <LI>Next message: <A HREF="000136.html">[imscommunicator-users] Registration and contact-list display	issues on Linux-version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I am using ims-communicator on Linux. When login dialog appears and after I
+enter the password, registration does not happen.
+
+I tried this with Windows version of ims-communicator which works fine.
+
+On Linux, the code actually stops in GuiManager.requestAuthentication
+method. I get the following logs when I try to run the code:
+
+10968 [main] TRACE communicator.SipCommunicator  - [entry] obtainCredentials
+10968 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.sip.ims.IMS_CLIENT=true]
+11289 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP
+Authentication!]
+11293 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.sip.ims.IMS_CLIENT=true]
+11293 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.sip.ims.PRIVATE_ADDRESS=<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">alice at open-ims.test</A>
+]
+11300 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter
+login name and password for the specified realm:]
+11305 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.gui.USER_NAME_LABEL=User Name:]
+11345 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.gui.PASSWORD_LABEL=Password:]
+11988 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.sip.ims.IMS_CLIENT=true]
+11998 [main] DEBUG common.PropertiesDepot  -
+getProperty[net.java.sip.communicator.sip.ims.sec.SHARED_SECRET=null]
+
+
+There are no logs after this until I close the application.
+
+But, if I try to register the client explicitly from Menubar, client gets
+successfully registered with openims-core.
+
+
+Also there is one more problem. I tried to display contact list which I
+couldn't see until I commented following line in
+GuiManager.requestAuthentication method:
+
+authenticationSplash.setVisible(true);
+
+But after I comment this line, I obviously don't see the
+authenticationSplash dialog.
+
+
+Does anybody know , how do I show the contact-list and also how do I
+register the client at first attempt?
+
+
+Thanks,
+Rishikesh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081121/8dfea81a/attachment.html">https://lists.berlios.de/pipermail/imscommunicator-users/attachments/20081121/8dfea81a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000134.html">[imscommunicator-users] SUBSCRIBE Not getting routed to AS
+</A></li>
+	<LI>Next message: <A HREF="000136.html">[imscommunicator-users] Registration and contact-list display	issues on Linux-version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

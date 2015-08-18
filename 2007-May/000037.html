@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] [Fwd: Re: [OpenIMSCore-Users] Trying to	connect with ims communicator]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20%5BFwd%3A%20Re%3A%20%5BOpenIMSCore-Users%5D%20Trying%20to%0A%09connect%20with%20ims%20communicator%5D&In-Reply-To=%3C194.113.59.80.1178628089.wm%40webmail.inode.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000036.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] [Fwd: Re: [OpenIMSCore-Users] Trying to	connect with ims communicator]</H1>
+    <B>franz.edler at inode.at</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20%5BFwd%3A%20Re%3A%20%5BOpenIMSCore-Users%5D%20Trying%20to%0A%09connect%20with%20ims%20communicator%5D&In-Reply-To=%3C194.113.59.80.1178628089.wm%40webmail.inode.at%3E"
+       TITLE="[imscommunicator-users] [Fwd: Re: [OpenIMSCore-Users] Trying to	connect with ims communicator]">franz.edler at inode.at
+       </A><BR>
+    <I>Tue May  8 14:41:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000036.html">[imscommunicator-users] IPsec problems with IMS-communicator
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[imscommunicator-users] [OpenIMSCore-Users] Trying to connect	with ims communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I forgot to forward the message to imscommunicator-users.
+Maybe one of the developers can comment on it.
+
+Franz
+
+-----------------------------------------------------------
+Hello Pablo,
+
+it is the sam problem I already have posted two days ago.
+The problem is, that the latest version changes the the SECURITY_PORT_C
+from the configured value to the value of the already used signalling
+port.
+
+You see: your Contact header field (port 5073)
+
+&gt;<i> 23928 [main] DEBUG sip.SipManager  - generated ContactHeader:Contact:
+</I>&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at 10.95.30.22</A>:5073&gt;
+
+is identical to port-c. Obviously you did not configure that value, but
+the application overwrites it.
+
+&gt;<i> alg=AKAv1-MD5;ealg=null;spi-c=10002;spi-s=10004;port-c=5073;port-s=5062
+</I>
+Maybe one of the developers can comment on it.
+
+cheers
+Franz
+
+
+_______________________________________________
+OpenIMSCore-Users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">OpenIMSCore-Users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-users">https://lists.berlios.de/mailman/listinfo/openimscore-users</A>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000036.html">[imscommunicator-users] IPsec problems with IMS-communicator
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[imscommunicator-users] [OpenIMSCore-Users] Trying to connect	with ims communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

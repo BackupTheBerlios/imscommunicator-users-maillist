@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Registration with Open-IMS Fails	-usingAKAv1-MD5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20with%20Open-IMS%20Fails%0A%09-usingAKAv1-MD5&In-Reply-To=%3CD7CA51EF5B844F509F477D6BDDB8FBD5%40FRANZNOTEBOOK%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000153.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Registration with Open-IMS Fails	-usingAKAv1-MD5</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Registration%20with%20Open-IMS%20Fails%0A%09-usingAKAv1-MD5&In-Reply-To=%3CD7CA51EF5B844F509F477D6BDDB8FBD5%40FRANZNOTEBOOK%3E"
+       TITLE="[imscommunicator-users] Registration with Open-IMS Fails	-usingAKAv1-MD5">franz-edler at aon.at
+       </A><BR>
+    <I>Tue Oct 13 20:15:59 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000153.html">[imscommunicator-users] Registration with Open-IMS Fails -using	AKAv1-MD5
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#154">[ date ]</a>
+              <a href="thread.html#154">[ thread ]</a>
+              <a href="subject.html#154">[ subject ]</a>
+              <a href="author.html#154">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Meenatchy,
+
+&gt;<i> We are using the ims-communicator to test registeration with the Open-IMS.
+</I>&gt;<i> Is is failing  with 401 Unauthorized - Challenging the UE.
+</I>&gt;<i> I have attached the ims-communicator.xml &amp; stack log file with this.
+</I>
+I remember that I sometimes had a similar problem (the calculated XRES of
+the client does not match the expected value). Interestingly this problem
+disappears when you reset (set to zero) the SQN parameter of the IMPI in
+HSS.
+
+Maybe that helps.
+
+Regards
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000153.html">[imscommunicator-users] Registration with Open-IMS Fails -using	AKAv1-MD5
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#154">[ date ]</a>
+              <a href="thread.html#154">[ thread ]</a>
+              <a href="subject.html#154">[ subject ]</a>
+              <a href="author.html#154">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>

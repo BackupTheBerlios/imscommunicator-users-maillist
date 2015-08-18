@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [imscommunicator-users] Status: 401 Unauthorized - Challenging the	UE.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/imscommunicator-users/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Status%3A%20401%20Unauthorized%20-%20Challenging%20the%0A%09UE.&In-Reply-To=%3C201207170647.q6H6lwlT009527%40mum.tatapowersed.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000159.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[imscommunicator-users] Status: 401 Unauthorized - Challenging the	UE.</H1>
+    <B>jskhairatkar at tatapowersed.com</B> 
+    <A HREF="mailto:imscommunicator-users%40lists.berlios.de?Subject=Re%3A%20%5Bimscommunicator-users%5D%20Status%3A%20401%20Unauthorized%20-%20Challenging%20the%0A%09UE.&In-Reply-To=%3C201207170647.q6H6lwlT009527%40mum.tatapowersed.com%3E"
+       TITLE="[imscommunicator-users] Status: 401 Unauthorized - Challenging the	UE.">jskhairatkar at tatapowersed.com
+       </A><BR>
+    <I>Tue Jul 17 08:47:58 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000159.html">[imscommunicator-users] (no subject)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+  I am getting the following message in wireshark when I am trying to register IMS Client, IMS Communicator with Open IMS Core.
+  Status: 401 Unauthorized - Challenging the UE.
+
+I have already registered an Xlite SIP Client with the server using MD5 algorithm as the setting, so I think it has something to do with the way I configured IMSCommunicator. I am pasting below IMSCommunicator.xml
+
+The IP of the machine where IMSCommuicator is operating is 172.20.209.102
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;configuration&gt;
+&lt;log4j&gt;
+    &lt;rootLogger value=&quot;net.java.sip.communicator.common.Console.TraceLevel, RFLogger&quot;/&gt;
+    &lt;appender&gt;
+        &lt;RFLogger value=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
+            &lt;layout value=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+                &lt;ConversionPattern value=&quot;%r [%t] %p %c{2} %x - %m%n&quot;/&gt;
+            &lt;/layout&gt;
+            &lt;MaxBackupIndex value=&quot;1&quot;/&gt;
+            &lt;File value=&quot;log/ims-communicator.app.log&quot;/&gt;
+            &lt;MaxFileSize value=&quot;256KB&quot;/&gt;
+        &lt;/RFLogger&gt;
+    &lt;/appender&gt;
+&lt;/log4j&gt;
+&lt;net&gt;
+  &lt;java&gt;
+    &lt;sip&gt;
+      &lt;communicator&gt;
+          &lt;FIRST_LAUNCH value=&quot;false&quot;/&gt;
+          &lt;ENABLE_SIMPLE value=&quot;false&quot;/&gt;
+          &lt;media&gt;
+&lt;!---         &lt;PREFERRED_AUDIO_ENCODING system=&quot;false&quot; value=&quot;&quot;/&gt; --&gt;
+            &lt;PREFERRED_AUDIO_ENCODING value=&quot;0&quot;/&gt;
+            &lt;PREFERRED_VIDEO_ENCODING value=&quot;34&quot;/&gt;
+            &lt;NO_AUDIO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+            &lt;NO_VIDEO_DESCRIPTION_IN_SDP value=&quot;false&quot;/&gt;
+            &lt;MEDIA_SOURCE value=&quot;&quot;/&gt;
+            &lt;MEDIA_BUFFER_LENGTH value=&quot;100&quot;/&gt;
+            &lt;IP_ADDRESS value=&quot;&quot;/&gt;
+            &lt;AUDIO_PORT value=&quot;&quot;/&gt;
+            &lt;VIDEO_PORT value=&quot;&quot;/&gt;
+        &lt;/media&gt;
+        &lt;sip&gt;
+            &lt;PUBLIC_ADDRESS value=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;/&gt;
+            &lt;TRANSPORT value=&quot;&quot;/&gt;
+            &lt;REGISTRAR_ADDRESS value=&quot;open-ims.test&quot;/&gt;
+            &lt;USER_NAME value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;/&gt;
+            &lt;STACK_PATH value=&quot;gov.nist&quot;/&gt;
+            &lt;PREFERRED_LOCAL_PORT value=&quot;5060&quot;/&gt;
+            &lt;DISPLAY_NAME value=&quot;bob&quot;/&gt;
+            &lt;REGISTRAR_TRANSPORT value=&quot;UDP&quot;/&gt;
+            &lt;REGISTRATIONS_EXPIRATION value=&quot;3600&quot;/&gt;
+            &lt;REGISTRAR_PORT value=&quot;5060&quot;/&gt;
+            &lt;FAIL_CALLS_ON_DEST_USER_MISMATCH value=&quot;false&quot;/&gt;
+            &lt;DEFAULT_DOMAIN_NAME value=&quot;open-ims.test&quot;/&gt; 
+            &lt;DEFAULT_AUTHENTICATION_REALM value=&quot;open-ims.test&quot;/&gt; 
+            &lt;WAIT_UNREGISTGRATION_FOR value=&quot;1100&quot;/&gt;
+            &lt;SAME_USER_EVERYWHERE value=&quot;true&quot;/&gt;
+            &lt;ACCEPT_EARLY_MEDIA value=&quot;true&quot;/&gt;
+            
+&lt;!-- IMS Client --&gt;
+
+            &lt;ims&gt;
+                &lt;IMS_CLIENT value=&quot;true&quot;/&gt;
+                &lt;PRIVATE_ADDRESS value=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;/&gt;
+                &lt;PREFERRED_ADDRESS value=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">bob at open-ims.test</A>&quot;/&gt;
+                &lt;PREFERRED_DISPLAY_NAME value=&quot;&quot;/&gt;
+                &lt;ACCEPT_REFER_WITHOUT_SESSION_ON value=&quot;true&quot;/&gt;
+                &lt;REFER_TIMEOUT value=&quot;60000&quot;/&gt;
+                &lt;REG_EVENT_SUBSCRIPTION_TIMEOUT value=&quot;600000&quot;/&gt;
+                &lt;ACCESS_TYPE value=&quot;IEEE-802.11&quot;/&gt;
+                &lt;DEFAULT_LOCAL_PRECONDITION value=&quot;sendrecv&quot;/&gt;
+                &lt;VIDEO_BANDWIDTH value=&quot;75&quot;/&gt;
+                &lt;AUDIO_BANDWIDTH value=&quot;25&quot;/&gt;
+              
+                &lt;!-- testing feature --&gt;
+                &lt;PCSCF_DYNAMIC_DISCOVERY value=&quot;false&quot;/&gt;
+              
+                &lt;sec&gt;
+	                &lt;PRIVACY_PARAMS value=&quot;&quot;/&gt;
+					&lt;USE_IPSEC value=&quot;false&quot;/&gt;
+					&lt;!-- supported values are &quot;AKAv1-MD5&quot; and &quot;MD5&quot; /--&gt;
+	                &lt;AUTH_ALGORITHM value=&quot;MD5&quot;/&gt;
+	                &lt;SECURITY_AGREEMENT value=&quot;ipsec-3gpp&quot;/&gt;
+	                &lt;SECURITY_ALGORITHM value=&quot;hmac-sha-1-96&quot;/&gt;
+	                &lt;SECURITY_ENCRYPT_ALG value=&quot;&quot;/&gt;
+					&lt;!-- operator ID : 16 bytes (32 hex char) --&gt;
+	                &lt;OPERATOR_ID value=&quot;00000000000000000000000000000000&quot;/&gt;
+	                &lt;!-- if local port is != 5060/5061, local port is used for IPSec SA --&gt;
+					&lt;PROTECT_PREFERRED_LOCAL_PORT value=&quot;true&quot;/&gt;
+                    &lt;REJECT_MALFORMED_NONCE value=&quot;false&quot;/&gt;
+                    
+                    &lt;!-- 16 bytes (32 hex char) --&gt;
+                    &lt;SHARED_SECRET value=&quot;&quot;/&gt;
+                &lt;/sec&gt;
+            &lt;/ims&gt;
+            
+&lt;!-- end of IMS Client --&gt;
+            
+            &lt;simple&gt;
+                &lt;CONTACT_LIST_FILE value=&quot;contact-list.xml&quot;/&gt;
+                &lt;SUBSCRIPTION_EXP_TIME value=&quot;150&quot;/&gt;
+                &lt;MIN_EXP_TIME value=&quot;60&quot;/&gt;
+                &lt;LAST_SELECTED_OPEN_STATUS value=&quot;busy&quot;/&gt;
+            &lt;/simple&gt;
+            
+        	&lt;EXCESSIVE_URI_CHARACTERS value=&quot;( )&quot;/&gt;
+        	
+        	&lt;!-- value in seconds. If not empty, include the following headers in the initial invite --&gt;
+        	&lt;MIN_SE value=&quot;&quot;/&gt;
+        	&lt;SESSION_EXPIRES value=&quot;&quot;/&gt;
+		&lt;/sip&gt;
+        
+        &lt;gui&gt;
+            &lt;AUTH_WIN_TITLE value=&quot;SIP Authentication!&quot;/&gt;
+            &lt;AUTHENTICATION_PROMPT value=&quot;Please enter login name and password for the specified realm:&quot;/&gt;
+            &lt;USER_NAME_LABEL value=&quot;User Name:&quot;/&gt;
+            &lt;USER_NAME_EXAMPLE value=&quot;Example: testes1&quot;/&gt;
+            &lt;PASSWORD_LABEL value=&quot;Password:&quot;/&gt;
+            &lt;!--GUI_MODE value=&quot;PhoneUiMode&quot;/--&gt;
+            &lt;PHONE_GUI_MODE value=&quot;true&quot;/&gt;
+            &lt;IM_GUI_MODE value=&quot;false&quot;/&gt;
+            &lt;imp&gt;
+                &lt;CONTACT_LIST_X value=&quot;185&quot;/&gt;
+                &lt;CONTACT_LIST_Y value=&quot;165&quot;/&gt;
+                &lt;CONTACT_LIST_WIDTH value=&quot;157&quot;/&gt;
+                &lt;CONTACT_LIST_HEIGHT value=&quot;433&quot;/&gt;
+            &lt;/imp&gt;
+            &lt;logo&gt;
+            	&lt;MAIN_LOGO value=&quot;default-logo.jpg&quot;/&gt;
+            	&lt;PHONE_GUI_ICON value=&quot;default-icon.jpg&quot;/&gt;
+            	&lt;IM_GUI_ICON value=&quot;presence-icon.jpg&quot;/&gt;
+            &lt;/logo&gt;
+        &lt;/gui&gt;
+        
+        &lt;common&gt;
+            &lt;PREFERRED_NETWORK_INTERFACE value=&quot;Realtek RTL8168C(P)/8111C(P) PCI-E Gigabit Ethernet NIC - Packet Scheduler Miniport&quot;/&gt;
+            &lt;PREFERRED_NETWORK_ADDRESS value=&quot;172.20.209.102&quot;/&gt;
+        &lt;/common&gt;
+
+
+&lt;!--
+    net.java.sip.communicator.sipphone.IS_RUNNING_SIPPHONE=false
+    net.java.sip.communicator.sipphone.MY_SIPPHONE_URL=<A HREF="http://my.sipphone.com">http://my.sipphone.com</A>
+--&gt;
+        &lt;sipphone&gt;
+            &lt;IS_RUNNING_SIPPHONE value=&quot;false&quot;/&gt;
+            &lt;MY_SIPPHONE_URL value=&quot;<A HREF="http://my.sipphone.com">http://my.sipphone.com</A>&quot;/&gt;
+        &lt;USER_NAME_EXAMPLE value=&quot;testes1&quot;/&gt;
+&lt;/sipphone&gt;
+&lt;!--
+net.java.sip.communicator.gui.AUTH_WIN_TITLE=SIP Authentication!
+net.java.sip.communicator.gui.AUTHENTICATION_PROMPT=Please enter login name and password for the specified realm:
+net.java.sip.communicator.gui.USER_NAME_LABEL=SIPphone Number:
+net.java.sip.communicator.sipphone.USER_NAME_EXAMPLE=Example: 1-747-555-1212
+net.java.sip.communicator.gui.PASSWORD_LABEL=Password:
+--&gt;
+
+&lt;!--
+    net.java.sip.communicator.STUN_SERVER_ADDRESS=stun01.sipphone.com
+    net.java.sip.communicator.STUN_SERVER_PORT=3478
+    net.java.sip.communicator.VOICE_MAIL_ADDRESS=17475551212
+--&gt;
+        &lt;!--STUN_SERVER_ADDRESS value=&quot;stun01.sipphone.com&quot;/--&gt;
+        &lt;!--STUN_SERVER_PORT value=&quot;3478&quot;/--&gt;
+        &lt;VOICE_MAIL_ADDRESS value=&quot;17475551212&quot;/&gt;
+&lt;/communicator&gt;
+    &lt;/sip&gt;
+  &lt;/java&gt;
+&lt;/net&gt;
+    &lt;gov&gt;
+    &lt;nist&gt;
+        &lt;javax&gt;
+            &lt;sip&gt;
+                &lt;SERVER_LOG value=&quot;log/ims-communicator.stack.log&quot;/&gt;
+                &lt;DEBUG_LOG value=&quot;log/ims-communicator.debug.log&quot;/&gt;
+                &lt;BAD_MESSAGE_LOG value=&quot;log/ims-communicator.ignored.log&quot;/&gt;
+				&lt;!-- TRACE_LEVEL: 16 for stack log..  or 32 for both stack and debug log/--&gt;
+                &lt;TRACE_LEVEL value=&quot;16&quot;/&gt;
+            &lt;/sip&gt;
+        &lt;/javax&gt;
+    &lt;/nist&gt;
+&lt;/gov&gt;
+&lt;javax&gt;
+    &lt;sip&gt;
+        &lt;IP_ADDRESS value=&quot;172.20.209.102&quot;/&gt;
+        &lt;STACK_NAME value=&quot;sip-communicator&quot;/&gt;
+        &lt;ROUTER_PATH value=&quot;net.java.sip.communicator.sip.SipCommRouter&quot;/&gt;
+        &lt;!-- important: sip outbound proxy format is &lt;address&gt;:&lt;port&gt;/&lt;transport&gt; --&gt;
+        &lt;OUTBOUND_PROXY value=&quot;pcscf.open-ims.test:4060/udp&quot;/&gt;
+        &lt;RETRANSMISSON_FILTER value=&quot;&quot;/&gt;
+        &lt;EXTENSION_METHODS value=&quot;&quot;/&gt;
+        &lt;RETRANSMISSION_FILTER value=&quot;true&quot;/&gt;
+    &lt;/sip&gt;
+&lt;/javax&gt;
+&lt;java&gt;
+    &lt;net&gt;
+        &lt;preferIPv4Stack system=&quot;true&quot; value=&quot;true&quot;/&gt;
+        &lt;preferIPv6Addresses system=&quot;false&quot; value=&quot;false&quot;/&gt;
+    &lt;/net&gt;
+&lt;/java&gt;
+&lt;/configuration&gt;
+
+I will be grateful for any kind of help.
+
+Thanks and Regards
+ Jaytirth 
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000159.html">[imscommunicator-users] (no subject)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/imscommunicator-users">More information about the Imscommunicator-users
+mailing list</a><br>
+</body></html>
